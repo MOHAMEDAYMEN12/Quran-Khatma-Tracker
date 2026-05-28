@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12pt;
+      line-height: 1.8;
+      color: #000;
+      background: #e8e8e8;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20mm auto;
+      padding: 25mm 25mm 20mm 25mm;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    /* COVER PAGE */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 250mm;
+      text-align: center;
+      border: 3px double #1a3a6b;
+      padding: 2rem;
+    }
+
+    .cover .univ-logo {
+      font-size: 48pt;
+      margin-bottom: 1rem;
+    }
+
+    .cover .univ-name {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #1a3a6b;
+      margin-bottom: 0.3rem;
+    }
+
+    .cover .dept {
+      font-size: 11pt;
+      color: #333;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #1a3a6b;
+      padding-bottom: 1rem;
+      width: 80%;
+    }
+
+    .cover .project-title {
+      font-size: 20pt;
+      font-weight: bold;
+      color: #1a3a6b;
+      margin: 2rem 0 1rem;
+      line-height: 1.4;
+    }
+
+    .cover .project-subtitle {
+      font-size: 13pt;
+      color: #555;
+      margin-bottom: 2.5rem;
+    }
+
+    .cover .info-table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: 2rem 0;
+    }
+    .cover .info-table td {
+      padding: 0.4rem 1rem;
+      border: 1px solid #ccc;
+      font-size: 11pt;
+    }
+    .cover .info-table td:first-child {
+      background: #f0f4ff;
+      font-weight: bold;
+      width: 40%;
+    }
+
+    .cover .cover-date {
+      margin-top: 2rem;
+      font-size: 11pt;
+      color: #555;
+    }
+
+    /* PAGE BREAK */
+    .page-break { page-break-after: always; }
+
+    /* SECTION HEADERS */
+    h1 {
+      font-size: 16pt;
+      font-weight: bold;
+      color: #1a3a6b;
+      border-bottom: 2px solid #1a3a6b;
+      padding-bottom: 6px;
+      margin: 2rem 0 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 13pt;
+      font-weight: bold;
+      color: #1a3a6b;
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #333;
+      margin: 1rem 0 0.3rem;
+      text-decoration: underline;
+    }
+
+    p {
+      margin-bottom: 0.8rem;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin: 0.5rem 0 1rem 2rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 10.5pt;
+    }
+
+    table th {
+      background-color: #1a3a6b;
+      color: white;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    table td {
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+    }
+
+    table tr:nth-child(even) {
+      background: #f5f8ff;
+    }
+
+    /* CODE BLOCKS */
+    .code-block {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-left: 4px solid #1a3a6b;
+      padding: 10px 14px;
+      font-family: 'Courier New', monospace;
+      font-size: 9.5pt;
+      margin: 0.8rem 0;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: #eef3ff;
+      border: 1px solid #b0c4f8;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 1rem 0;
+    }
+
+    .warning-box {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 1rem 0;
+    }
+
+    .success-box {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 4px;
+      padding: 10px 14px;
+      margin: 1rem 0;
+    }
+
+    .box-title {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    /* FLOW DIAGRAM */
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      justify-content: center;
+    }
+
+    .flow-item {
+      background: #1a3a6b;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 10pt;
+      font-weight: bold;
+    }
+
+    .flow-arrow {
+      font-size: 14pt;
+      color: #1a3a6b;
+    }
+
+    /* TOC */
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    .toc-num {
+      font-weight: bold;
+      margin-right: 8px;
+      color: #1a3a6b;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1a3a6b;
+      color: white;
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-size: 9pt;
+      font-weight: bold;
+      margin-right: 4px;
+    }
+
+    .badge.green { background: #2e7d32; }
+    .badge.red { background: #c62828; }
+    .badge.orange { background: #e65100; }
+
+    hr.section-hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 1.5rem 0;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; }
+      .page-break { page-break-after: always; }
+    }
+  </style>
+  <title>Proje Raporu - Kur'an Hatim Takip Sistemi</title>
+</head>
+<body>
+
+<!-- ==================== KAPAK SAYFASI ==================== -->
+<div class="page">
+  <div class="cover">
+    <div class="univ-logo">🕌</div>
+    <div class="univ-name">ÜNİVERSİTE PROJESİ</div>
+    <div class="dept">Bilgisayar Mühendisliği Bölümü<br>Web Programlama Dersi</div>
+
+    <div class="project-title">KUR'AN KERİM HATİM TAKİP<br>WEB UYGULAMASI</div>
+    <div class="project-subtitle">Full-Stack Web Geliştirme Projesi<br>(React.js + Node.js + SQLite)</div>
+
+    <table class="info-table">
+      <tr><td>Öğrenci Adı</td><td>&#160;</td></tr>
+      <tr><td>Öğrenci No</td><td>&#160;</td></tr>
+      <tr><td>Ders Adı</td><td>Web Programlama</td></tr>
+      <tr><td>Danışman</td><td>&#160;</td></tr>
+      <tr><td>Teslim Tarihi</td><td>Nisan 2026</td></tr>
+    </table>
+
+    <div class="cover-date">Ankara, Türkiye — 2026</div>
+  </div>
+</div>
+
+<!-- ==================== İÇİNDEKİLER ==================== -->
+<div class="page page-break">
+  <h1>İçindekiler</h1>
+
+  <div class="toc-item"><span><span class="toc-num">1.</span> Proje Özeti</span><span>3</span></div>
+  <div class="toc-item"><span><span class="toc-num">2.</span> Proje Hedefleri ve Gereksinimler</span><span>3</span></div>
+  <div class="toc-item"><span><span class="toc-num">3.</span> Kullanılan Teknolojiler</span><span>4</span></div>
+  <div class="toc-item"><span><span class="toc-num">4.</span> Sistem Mimarisi</span><span>5</span></div>
+  <div class="toc-item"><span><span class="toc-num">5.</span> Veritabanı Tasarımı</span><span>6</span></div>
+  <div class="toc-item"><span><span class="toc-num">6.</span> Backend Geliştirme (Node.js & Express)</span><span>7</span></div>
+  <div class="toc-item"><span><span class="toc-num">7.</span> Frontend Geliştirme (React.js)</span><span>8</span></div>
+  <div class="toc-item"><span><span class="toc-num">8.</span> Karşılaşılan Sorunlar ve Çözümleri</span><span>10</span></div>
+  <div class="toc-item"><span><span class="toc-num">9.</span> Ekran Görüntüleri ve Akış Diyagramları</span><span>12</span></div>
+  <div class="toc-item"><span><span class="toc-num">10.</span> Sonuç ve Değerlendirme</span><span>13</span></div>
+  <div class="toc-item"><span><span class="toc-num">11.</span> Kaynakça</span><span>14</span></div>
+</div>
+
+<!-- ==================== BÖLÜM 1: ÖZET ==================== -->
+<div class="page page-break">
+  <h1>1. Proje Özeti</h1>
+  <p>
+    Bu proje, Müslümanların Kur'an-ı Kerim okuma süreçlerini takip edebilmeleri için geliştirilmiş modern bir web uygulamasıdır. Kullanıcılar sisteme kayıt olarak kendi okuma ilerlemelerini takip edebilir, başka kişiler adına hatim başlatabilir ve doğrudan uygulama üzerinden Kur'an-ı Kerim okuyabilirler.
+  </p>
+  <p>
+    Uygulama, kullanıcı dostu arayüzü ve çift dil desteği (Türkçe ve Arapça) ile geniş bir kitleye hitap etmektedir. Proje, modern full-stack web teknolojileri olan <strong>React.js</strong> ve <strong>Node.js</strong> kullanılarak geliştirilmiştir.
+  </p>
+
+  <div class="info-box">
+    <div class="box-title">📌 Proje Özellikleri</div>
+    <ul>
+      <li>Kullanıcı kaydı ve oturum yönetimi (JWT tabanlı kimlik doğrulama)</li>
+      <li>Birden fazla hatim başlatma ve takip etme</li>
+      <li>Sure ve ayet bazlı ilerleme hesaplama (6236 ayet üzerinden)</li>
+      <li>Kur'an-ı Kerim görüntüleyici (Osmanlı Hattı)</li>
+      <li>Ayet işaretleme ve ilerleme kaydetme özelliği</li>
+      <li>Türkçe / Arapça dil desteği ve RTL/LTR düzeni</li>
+    </ul>
+  </div>
+
+  <h1>2. Proje Hedefleri ve Gereksinimler</h1>
+
+  <h2>2.1 Fonksiyonel Gereksinimler</h2>
+  <table>
+    <tr>
+      <th>No</th><th>Gereksinim</th><th>Öncelik</th><th>Durum</th>
+    </tr>
+    <tr>
+      <td>F-01</td>
+      <td>Kullanıcı kaydı (Ad, E-posta, Şifre)</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-02</td>
+      <td>Kullanıcı girişi ve JWT token yönetimi</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-03</td>
+      <td>Kişisel hatim başlatma</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-04</td>
+      <td>Başkası adına hatim açma</td>
+      <td>Orta</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-05</td>
+      <td>Sure/Ayet seçimi ile ilerleme güncelleme</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-06</td>
+      <td>Kur'an okuma sayfası</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-07</td>
+      <td>Ayete tıklayarak ilerleme kaydetme</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-08</td>
+      <td>Türkçe / Arapça dil değiştirme</td>
+      <td>Orta</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+  </table>
+
+  <h2>2.2 Teknik Gereksinimler</h2>
+  <ul>
+    <li>Ayrı bir frontend ve backend sunucu mimarisi (Ayrık katmanlı mimari)</li>
+    <li>REST API ile frontend-backend iletişimi</li>
+    <li>Güvenli şifreleme ve token tabanlı kimlik doğrulama</li>
+    <li>Harici API entegrasyonu (Kur'an verileri için)</li>
+    <li>Kalıcı veri depolama (veritabanı)</li>
+    <li>Duyarlı (Responsive) tasarım</li>
+  </ul>
+</div>
+
+<!-- ==================== BÖLÜM 3: TEKNOLOJİLER ==================== -->
+<div class="page page-break">
+  <h1>3. Kullanılan Teknolojiler</h1>
+
+  <h2>3.1 Frontend Teknolojileri</h2>
+  <table>
+    <tr><th>Teknoloji</th><th>Versiyon</th><th>Kullanım Amacı</th></tr>
+    <tr><td>React.js</td><td>^19.x</td><td>Kullanıcı arayüzü bileşenleri</td></tr>
+    <tr><td>Vite</td><td>^8.x</td><td>Hızlı geliştirme sunucusu ve paketleme</td></tr>
+    <tr><td>React Router DOM</td><td>^7.x</td><td>Sayfa yönlendirme (SPA routing)</td></tr>
+    <tr><td>Axios</td><td>^1.x</td><td>HTTP istekleri (API çağrıları)</td></tr>
+    <tr><td>i18next + react-i18next</td><td>^24.x</td><td>Çok dilli destek (TR / AR)</td></tr>
+    <tr><td>Vanilla CSS</td><td>-</td><td>Özel stil tasarımı (karanlık tema)</td></tr>
+    <tr><td>Google Fonts (Amiri)</td><td>-</td><td>Arap hattı yazı tipi</td></tr>
+    <tr><td>Alquran Cloud API</td><td>v1</td><td>Kur'an metni verisi (Osmanlı hattı)</td></tr>
+  </table>
+
+  <h2>3.2 Backend Teknolojileri</h2>
+  <table>
+    <tr><th>Teknoloji</th><th>Versiyon</th><th>Kullanım Amacı</th></tr>
+    <tr><td>Node.js</td><td>^22.x</td><td>Sunucu taraflı JavaScript çalışma ortamı</td></tr>
+    <tr><td>Express.js</td><td>^5.x</td><td>HTTP sunucusu ve API routing</td></tr>
+    <tr><td>SQLite3</td><td>^6.x</td><td>Hafif ilişkisel veritabanı</td></tr>
+    <tr><td>bcrypt</td><td>^6.x</td><td>Güvenli şifre şifreleme (hashing)</td></tr>
+    <tr><td>jsonwebtoken (JWT)</td><td>^9.x</td><td>Kimlik doğrulama token'ları</td></tr>
+    <tr><td>cors</td><td>^2.x</td><td>Cross-Origin kaynak paylaşımı</td></tr>
+    <tr><td>dotenv</td><td>^17.x</td><td>Ortam değişkenleri yönetimi</td></tr>
+    <tr><td>nodemon</td><td>^3.x</td><td>Otomatik sunucu yeniden başlatma</td></tr>
+  </table>
+
+  <h2>3.3 Geliştirme Araçları</h2>
+  <table>
+    <tr><th>Araç</th><th>Kullanım Amacı</th></tr>
+    <tr><td>Visual Studio Code</td><td>Kod editörü</td></tr>
+    <tr><td>npm (Node Package Manager)</td><td>Paket yönetimi</td></tr>
+    <tr><td>Git</td><td>Versiyon kontrolü</td></tr>
+    <tr><td>Windows PowerShell</td><td>Terminal komutları</td></tr>
+  </table>
+</div>
+
+<!-- ==================== BÖLÜM 4: MİMARİ ==================== -->
+<div class="page page-break">
+  <h1>4. Sistem Mimarisi</h1>
+
+  <h2>4.1 Genel Mimari</h2>
+  <p>
+    Uygulama, <strong>İstemci-Sunucu (Client-Server)</strong> mimarisi üzerine inşa edilmiştir. Frontend ve Backend birbirinden tamamen bağımsız olup aralarındaki iletişim <strong>REST API</strong> aracılığıyla gerçekleşmektedir.
+  </p>
+
+  <div class="flow">
+    <div class="flow-item">🌐 Tarayıcı (React)</div>
+    <div class="flow-arrow">⇄</div>
+    <div class="flow-item">🔌 REST API</div>
+    <div class="flow-arrow">⇄</div>
+    <div class="flow-item">⚙️ Express.js</div>
+    <div class="flow-arrow">⇄</div>
+    <div class="flow-item">🗄️ SQLite DB</div>
+  </div>
+  <br>
+  <div class="flow">
+    <div class="flow-item">📖 AlQuran API</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-item">🌐 React (Kur'an Okuyucu)</div>
+  </div>
+
+  <h2>4.2 Proje Dizin Yapısı</h2>
+  <div class="code-block">uyglama22/
+├── backend/
+│   ├── server.js          → Ana Express sunucusu & API endpoint'leri
+│   ├── db.js              → SQLite bağlantısı & tablo oluşturma
+│   ├── .env               → Ortam değişkenleri (PORT, JWT_SECRET)
+│   ├── database.sqlite    → Veritabanı dosyası
+│   └── package.json       → Node.js bağımlılıkları
+│
+└── frontend/
+    ├── src/
+    │   ├── App.jsx         → Ana uygulama (Auth, Dashboard, KhatmCard)
+    │   ├── QuranReader.jsx → Kur'an okuyucu sayfası
+    │   ├── surahData.js    → 114 sure verisi & ayet indeks yardımcıları
+    │   ├── i18n.js         → Türkçe/Arapça çeviri dosyası
+    │   ├── index.css       → Global stiller (karanlık tema)
+    │   └── main.jsx        → React giriş noktası
+    └── package.json        → React bağımlılıkları</div>
+
+  <h2>4.3 Kimlik Doğrulama Akışı</h2>
+  <div class="flow" style="flex-direction:column; align-items:flex-start; padding-left:2rem;">
+    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+      <div class="flow-item" style="width:180px;">1. Kullanıcı Kaydı</div>
+      <span style="color:#555; font-size:10pt;">Ad + E-posta + Şifre → bcrypt ile şifrelenir → SQLite'a kaydedilir</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+      <div class="flow-item" style="width:180px;">2. Giriş</div>
+      <span style="color:#555; font-size:10pt;">E-posta + Şifre → bcrypt.compare → JWT token oluşturulur</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
+      <div class="flow-item" style="width:180px;">3. API İstekleri</div>
+      <span style="color:#555; font-size:10pt;">Token → Authorization header → Backend doğrular → Veri döndürür</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <div class="flow-item" style="width:180px; background:#2e7d32;">4. Çıkış</div>
+      <span style="color:#555; font-size:10pt;">LocalStorage temizlenir → Token geçersiz → Ana sayfaya yönlendirilir</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== BÖLÜM 5: VERİTABANI ==================== -->
+<div class="page page-break">
+  <h1>5. Veritabanı Tasarımı</h1>
+  <p>
+    Veritabanı olarak kurulum gerektirmeyen, dosya tabanlı <strong>SQLite</strong> seçilmiştir. Bu tercih, projenin taşınabilirliğini ve kurulum kolaylığını artırmaktadır.
+  </p>
+
+  <h2>5.1 <code>users</code> Tablosu</h2>
+  <table>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Benzersiz kullanıcı kimliği</td></tr>
+    <tr><td>name</td><td>TEXT NOT NULL</td><td>Kullanıcı adı</td></tr>
+    <tr><td>email</td><td>TEXT UNIQUE NOT NULL</td><td>E-posta adresi (benzersiz)</td></tr>
+    <tr><td>password</td><td>TEXT NOT NULL</td><td>bcrypt ile şifrelenmiş parola</td></tr>
+  </table>
+
+  <h2>5.2 <code>khatms</code> Tablosu</h2>
+  <table>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Hatim kimliği</td></tr>
+    <tr><td>title</td><td>TEXT NOT NULL</td><td>Hatim başlığı</td></tr>
+    <tr><td>owner_id</td><td>INTEGER (FK → users.id)</td><td>Hatimi oluşturan kullanıcı</td></tr>
+    <tr><td>target_person</td><td>TEXT</td><td>Hatim kimin adına okunuyor (isteğe bağlı)</td></tr>
+    <tr><td>last_ayah</td><td>INTEGER DEFAULT 0</td><td>Son okunan ayetin global numarası (1-6236)</td></tr>
+    <tr><td>total_ayahs</td><td>INTEGER DEFAULT 6236</td><td>Toplam ayet sayısı</td></tr>
+    <tr><td>type</td><td>TEXT ('self' / 'other')</td><td>Hatim türü</td></tr>
+  </table>
+
+  <h2>5.3 İlerleme Hesaplama Mantığı</h2>
+  <div class="info-box">
+    <div class="box-title">📐 Yüzde Hesaplama Formülü</div>
+    <div class="code-block" style="margin-top:8px;">Tamamlanma % = (son_okunan_ayet / 6236) × 100
+
+Örnek: Al-i İmran, Ayet 100 için:
+  → Küresel ayet indeksi = 293 (Al-Fatiha:7 + Al-Bakara:286 + 100)
+  → Tamamlanma = (293 / 6236) × 100 = %4.7</div>
+  </div>
+
+  <p>
+    Kur'an-ı Kerim'in 114 suresinin tüm ayet sayıları <code>surahData.js</code> dosyasında tutulmakta; <code>getAyahIndex()</code> fonksiyonu ile sure/ayet ikilisi küresel ayet numarasına, <code>getSurahFromIndex()</code> ile de küresel numara sure/ayet ikilisine dönüştürülmektedir.
+  </p>
+</div>
+
+<!-- ==================== BÖLÜM 6: BACKEND ==================== -->
+<div class="page page-break">
+  <h1>6. Backend Geliştirme (Node.js & Express.js)</h1>
+
+  <h2>6.1 API Endpoint'leri</h2>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Açıklama</th><th>Auth</th></tr>
+    <tr><td>POST</td><td>/api/auth/register</td><td>Yeni kullanıcı kaydı</td><td>Hayır</td></tr>
+    <tr><td>POST</td><td>/api/auth/login</td><td>Kullanıcı girişi → JWT token</td><td>Hayır</td></tr>
+    <tr><td>GET</td><td>/api/khatms</td><td>Kullanıcının tüm hatimleri</td><td>✓ JWT</td></tr>
+    <tr><td>POST</td><td>/api/khatms</td><td>Yeni hatim oluşturma</td><td>✓ JWT</td></tr>
+    <tr><td>PUT</td><td>/api/khatms/:id</td><td>Hatim ilerlemesini güncelleme</td><td>✓ JWT</td></tr>
+  </table>
+
+  <h2>6.2 Kimlik Doğrulama Middleware</h2>
+  <p>Her yetkili endpoint'e gelen istek, JWT token kontrolünden geçmektedir. Token geçersizse <code>403 Forbidden</code> hatası döndürülmektedir.</p>
+  <div class="code-block">const authenticate = (req, res, next) => {
+  const token = req.headers['authorization'];
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+  jwt.verify(token.split(' ')[1], SECRET, (err, decoded) => {
+    if (err) return res.status(403).json({ error: 'Forbidden' });
+    req.userId = decoded.id;
+    next();
+  });
+};</div>
+
+  <h2>6.3 Güvenlik Önlemleri</h2>
+  <ul>
+    <li><strong>Şifre Güvenliği:</strong> Şifreler veritabanına <code>bcrypt</code> (salt round: 10) ile hashlenerek kaydedilmektedir. Düz metin şifre hiçbir zaman depolanmamaktadır.</li>
+    <li><strong>JWT Token:</strong> Her oturum açma işleminde benzersiz bir token oluşturulmakta; token 24 saat sonra otomatik olarak geçersiz olmaktadır.</li>
+    <li><strong>CORS:</strong> Yalnızca frontend kaynağından gelen istekler kabul edilmektedir.</li>
+    <li><strong>Veri Doğrulama:</strong> Tüm endpoint'lerde gelen veriler kontrol edilmektedir.</li>
+  </ul>
+
+  <h2>6.4 Sunucu Başlatma Komutları</h2>
+  <div class="code-block">cd backend
+npm run dev          # nodemon ile otomatik yeniden başlatma
+# Sunucu: http://localhost:5000</div>
+</div>
+
+<!-- ==================== BÖLÜM 7: FRONTEND ==================== -->
+<div class="page page-break">
+  <h1>7. Frontend Geliştirme (React.js)</h1>
+
+  <h2>7.1 Bileşen (Component) Yapısı</h2>
+  <table>
+    <tr><th>Bileşen</th><th>Dosya</th><th>Görev</th></tr>
+    <tr><td>AuthProvider</td><td>App.jsx</td><td>Kullanıcı oturumu için global state yönetimi (Context API)</td></tr>
+    <tr><td>Navbar</td><td>App.jsx</td><td>Üst menü: kullanıcı adı, çıkış, dil değiştirme</td></tr>
+    <tr><td>Login</td><td>App.jsx</td><td>Giriş formu</td></tr>
+    <tr><td>Register</td><td>App.jsx</td><td>Kayıt formu</td></tr>
+    <tr><td>Dashboard</td><td>App.jsx</td><td>Ana sayfa: hatim listesi + yeni hatim formu</td></tr>
+    <tr><td>KhatmCard</td><td>App.jsx</td><td>Hatim kartı: ilerleme çubuğu + güncelleme + okuma butonu</td></tr>
+    <tr><td>QuranReader</td><td>QuranReader.jsx</td><td>Kur'an okuma sayfası: sure seçimi + ayet görüntüleme</td></tr>
+  </table>
+
+  <h2>7.2 Sayfa Yönlendirme (Routing)</h2>
+  <table>
+    <tr><th>Rota (Route)</th><th>Bileşen</th><th>Açıklama</th></tr>
+    <tr><td>/login</td><td>Login</td><td>Giriş sayfası (yalnızca giriş yapmamış kullanıcılar)</td></tr>
+    <tr><td>/register</td><td>Register</td><td>Kayıt sayfası</td></tr>
+    <tr><td>/</td><td>Dashboard</td><td>Ana panel (yalnızca giriş yapmış kullanıcılar)</td></tr>
+    <tr><td>/read/:khatmId</td><td>QuranReader</td><td>Kur'an okuyucu (hatim kimliğine göre)</td></tr>
+  </table>
+
+  <h2>7.3 Çok Dilli Destek (i18n)</h2>
+  <p>
+    <strong>i18next</strong> kütüphanesi kullanılarak uygulama iki dili tam olarak desteklemektedir. Kullanıcı üst menüdeki dil butonuna tıklayarak Türkçe ↔ Arapça geçişi yapabilmektedir. Arapça'ya geçildiğinde sayfa düzeni otomatik olarak sağdan sola (RTL) dönmektedir.
+  </p>
+
+  <h2>7.4 Kur'an Okuyucu (QuranReader) Özellikleri</h2>
+  <ul>
+    <li>Alquran Cloud API'sinden Osmanlı hatlı sure metinleri anlık olarak çekilmektedir.</li>
+    <li>Sure seçimi için açılır menü ve ← → gezinme butonları mevcuttur.</li>
+    <li>Daha önce okunan ayetler <strong style="color:green;">yeşil</strong> renkte gösterilmektedir.</li>
+    <li>Herhangi bir ayete tıklandığında onay penceresi (dialog) açılmaktadır: "Bu ayeti durak noktası olarak kaydetmek ister misiniz?"</li>
+    <li>Onay verildiğinde ilerleme otomatik olarak backend'e gönderilip kaydedilmektedir.</li>
+  </ul>
+
+  <h2>7.5 İlerleme Çubuğu Renk Sistemi</h2>
+  <table>
+    <tr><th>İlerleme Aralığı</th><th>Renk</th><th>Anlam</th></tr>
+    <tr><td>0% - 50%</td><td>🔵 Mavi</td><td>Başlangıç aşaması</td></tr>
+    <tr><td>50% - 85%</td><td>🟢 Yeşil</td><td>Yarıdan fazlası tamamlandı</td></tr>
+    <tr><td>85% - 100%</td><td>🟡 Sarı</td><td>Tamamlanmak üzere</td></tr>
+  </table>
+
+  <h2>7.6 Frontend Başlatma Komutu</h2>
+  <div class="code-block">cd frontend
+npm run dev          # Vite geliştirme sunucusu
+# Adres: http://localhost:5173</div>
+</div>
+
+<!-- ==================== BÖLÜM 8: SORUNLAR VE ÇÖZÜMLER ==================== -->
+<div class="page page-break">
+  <h1>8. Karşılaşılan Sorunlar ve Çözümleri</h1>
+
+  <h2>Sorun 1: Frontend-Backend CORS Hatası</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>React uygulaması (localhost:5173) Node.js sunucusuna (localhost:5000) istek gönderdiğinde tarayıcı CORS politikası hatası veriyordu. Tüm API çağrıları engelleniyor, konsolda <code>Access-Control-Allow-Origin</code> hatası görünüyordu.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>Backend'e <code>cors</code> npm paketi eklendi ve tüm kaynaklardan gelen isteklere izin verildi. Bu sayede frontend ve backend farklı portlarda çalışmasına rağmen başarıyla iletişim kurabilmektedir.</p>
+    <div class="code-block" style="margin-top:8px;">const cors = require('cors');
+app.use(cors()); // Tüm origin'lere izin ver</div>
+  </div>
+
+  <hr class="section-hr">
+
+  <h2>Sorun 2: SQLite Modülü Kurulum Hatası</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>Windows üzerinde <code>sqlite3</code> paketi kurulurken Native C++ binding derleme hatası oluştu. <code>node-gyp</code> kurulum başarısız oldu.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>Node.js'in LTS (Long-Term Support) sürümü kullanıldı ve <code>sqlite3</code> paketinin ön derlenmiş (prebuilt) ikili dosyaları otomatik olarak indirildi. Ek araç kurulumuna gerek kalmadı.</p>
+  </div>
+
+  <hr class="section-hr">
+
+  <h2>Sorun 3: React'te import Sırası Hatası</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>App.jsx dosyasında <code>useNavigate</code> hook'u dosyanın ortasında import edilmeye çalışıldığında Vite derleme (build) hatası oluştu.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>Tüm import ifadeleri dosyanın en üstüne taşındı. React kurallarına göre import'lar her zaman dosyanın başında bulunmalıdır.</p>
+    <div class="code-block" style="margin-top:8px;">// ✓ Doğru - Dosyanın en üstünde
+import { BrowserRouter, Routes, Route, Navigate,
+         Link, useNavigate } from 'react-router-dom';
+</div>
+  </div>
+
+  <hr class="section-hr">
+
+  <h2>Sorun 4: Giriş Başarısız - "Invalid credentials"</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>Kullanıcı giriş yapmaya çalıştığında "Invalid credentials" hatası aldı. Kullanıcılar sisteme giriş yapamıyordu çünkü henüz kayıt olmamışlardı.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>Veritabanı yeni oluşturulduğu için boştu. Kullanıcıya önce "Kayıt Ol" sayfasına gidip hesap oluşturması gerektiği açıklandı. Kullanıcı kayıt olduktan sonra giriş başarıyla gerçekleşti.</p>
+  </div>
+
+  <hr class="section-hr">
+
+  <h2>Sorun 5: Kur'an API Entegrasyonu</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>Tüm 6236 ayetin frontend uygulamasına dahil edilmesi durumunda JavaScript bundle boyutu 5MB'ı aşacaktı. Bu durum sayfa yükleme süresini olumsuz etkileyecekti.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>Harici ve ücretsiz bir API olan <strong>Alquran Cloud (api.alquran.cloud)</strong> entegre edildi. Uygulama yalnızca kullanıcı bir sure seçtiğinde o surenin verilerini API'den çekmektedir (lazy loading). Bu yaklaşım sayesinde ilk yükleme süresi minimum düzeyde tutulmaktadır.</p>
+    <div class="code-block" style="margin-top:8px;">// Sadece seçilen sure yüklendiğinde API çağrısı yapılır
+const res = await fetch(
+  `https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`
+);</div>
+  </div>
+</div>
+
+<!-- ==================== BÖLÜM 9: EKRANLAR ==================== -->
+<div class="page page-break">
+  <h1>9. Uygulama Ekranları ve Kullanıcı Akışı</h1>
+
+  <h2>9.1 Kullanıcı Akışı</h2>
+  <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.3rem; padding-left:1rem;">
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <div class="flow-item">📋 Kayıt Ol</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">🔐 Giriş Yap</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">🏠 Ana Panel</div>
+    </div>
+    <div style="margin-left:14rem; display:flex; align-items:center; gap:0.5rem;">
+      <div class="flow-arrow">↓</div>
+    </div>
+    <div style="margin-left:10rem; display:flex; align-items:center; gap:0.5rem;">
+      <div class="flow-item">➕ Hatim Oluştur</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">📖 Kur'an Oku</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">✅ İlerleme Kaydet</div>
+    </div>
+  </div>
+
+  <h2>9.2 Ekranların Açıklaması</h2>
+
+  <h3>Kayıt/Giriş Ekranı</h3>
+  <p>Koyu (dark) arka planlı, modern bir tasarıma sahiptir. Kullanıcı adı, e-posta ve şifre alanlarından oluşmaktadır. Kayıt sayfası ile giriş sayfası arasında bağlantı mevcuttur.</p>
+
+  <h3>Ana Panel (Dashboard)</h3>
+  <p>İki ana bölümden oluşmaktadır:</p>
+  <ul>
+    <li><strong>Dahil Olduğunuz Hatimler:</strong> Kullanıcının kendi adına oluşturduğu hatimler</li>
+    <li><strong>Diğer Hatimler:</strong> Başkası adına oluşturulan hatimler</li>
+  </ul>
+  <p>Her hatim kartında şu bilgiler bulunmaktadır: Hatim adı, ilerleme yüzdesi, renkli ilerleme çubuğu, son durulan sure ve ayet, sure/ayet güncelleme dropdownları ve Kur'an okuma butonu.</p>
+
+  <h3>Kur'an Okuyucu Sayfası</h3>
+  <p>Üst kısımda hatim adı ve tamamlanma yüzdesi gösterilmektedir. Sure seçim menüsü ve gezinme butonları yer almaktadır. Ayetler Osmanlı hattıyla, sağdan sola (RTL) düzeninde büyük ve okunabilir bir şekilde sunulmaktadır. Kullanıcı herhangi bir ayete tıkladığında onay penceresi açılmaktadır.</p>
+
+  <h2>9.3 Tasarım Sistemi</h2>
+  <table>
+    <tr><th>Element</th><th>Değer</th></tr>
+    <tr><td>Arka Plan Rengi</td><td>#0f172a (Koyu Lacivert)</td></tr>
+    <tr><td>Kart Rengi</td><td>#1e293b</td></tr>
+    <tr><td>Ana Renk</td><td>#3b82f6 (Mavi)</td></tr>
+    <tr><td>Başarı Rengi</td><td>#22c55e (Yeşil)</td></tr>
+    <tr><td>Vurgu Rengi</td><td>#eab308 (Sarı/Altın)</td></tr>
+    <tr><td>UI Yazı Tipi</td><td>Outfit (Google Fonts)</td></tr>
+    <tr><td>Kur'an Yazı Tipi</td><td>Amiri (Google Fonts) - Arap hattı</td></tr>
+    <tr><td>Tasarım Stili</td><td>Dark Mode + Glassmorphism</td></tr>
+  </table>
+</div>
+
+<!-- ==================== BÖLÜM 10: SONUÇ ==================== -->
+<div class="page page-break">
+  <h1>10. Sonuç ve Değerlendirme</h1>
+
+  <h2>10.1 Tamamlanan Özellikler</h2>
+  <div class="success-box">
+    <ul>
+      <li>✅ Full-Stack uygulama başarıyla geliştirildi (React + Node.js)</li>
+      <li>✅ REST API tasarım ve geliştirme</li>
+      <li>✅ JWT tabanlı güvenli kimlik doğrulama</li>
+      <li>✅ SQLite veritabanı şeması ve sorguları</li>
+      <li>✅ Kur'an okuyucu sayfası (harici API entegrasyonu)</li>
+      <li>✅ 6236 ayet üzerinden ilerleme hesaplama</li>
+      <li>✅ Türkçe/Arapça çok dilli destek ve RTL/LTR düzeni</li>
+      <li>✅ Modern karanlık tema tasarım sistemi</li>
+    </ul>
+  </div>
+
+  <h2>10.2 Edinilen Teknik Tecrübeler</h2>
+  <ul>
+    <li>React.js ile bileşen bazlı UI geliştirme ve Context API ile global state yönetimi</li>
+    <li>Node.js/Express ile RESTful API tasarımı ve geliştirme</li>
+    <li>SQLite ile ilişkisel veritabanı şeması oluşturma</li>
+    <li>bcrypt ile güvenli şifre hashleme, JWT ile kimlik doğrulama</li>
+    <li>i18next ile çok dilli uygulama geliştirme</li>
+    <li>Harici REST API (Alquran Cloud) entegrasyonu</li>
+    <li>React Router v7 ile SPA (Single Page Application) yönlendirme</li>
+  </ul>
+
+  <h2>10.3 Gelecekte Eklenebilecek Özellikler</h2>
+  <ul>
+    <li>Sesli Kur'an okuma (MP3 entegrasyonu)</li>
+    <li>Kullanıcılar arası hatim paylaşımı (e-posta ile davet)</li>
+    <li>Hatim tamamlanma bildirimleri (push notification)</li>
+    <li>İstatistik sayfası (haftalık/aylık okuma grafiği)</li>
+    <li>Mobil uygulama (React Native)</li>
+    <li>Meal (Türkçe/Arapça anlam) görüntüleme</li>
+  </ul>
+
+  <h2>10.4 Değerlendirme</h2>
+  <p>
+    Bu proje, modern web geliştirmenin temel kavramlarını kapsamlı bir şekilde uygulayan tam işlevli bir full-stack web uygulamasıdır. Frontend ve backend'in birbirinden bağımsız geliştirilmesi, REST API aracılığıyla iletişim kurması ve güvenli kimlik doğrulama mekanizmalarının kullanılması, projeyi gerçek dünya uygulamalarında kullanılabilecek standart bir mimari yapıya sahip kılmaktadır.
+  </p>
+  <p>
+    Kur'an-ı Kerim hatim takibi gibi manevi bir ihtiyacı teknoloji ile birleştiren bu uygulama, kullanıcıların okuma alışkanlıklarını dijital ortamda takip etmelerine önemli katkı sağlayacaktır.
+  </p>
+</div>
+
+<!-- ==================== BÖLÜM 11: KAYNAKÇA ==================== -->
+<div class="page">
+  <h1>11. Kaynakça</h1>
+  <ol>
+    <li style="margin-bottom:0.6rem;">
+      React Resmi Dokümantasyonu. (2024). <em>React – A JavaScript library for building user interfaces.</em> Meta Open Source. https://react.dev
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      Node.js Foundation. (2024). <em>Node.js v22 Documentation.</em> OpenJS Foundation. https://nodejs.org/docs
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      Express.js Team. (2024). <em>Express – Fast, unopinionated, minimalist web framework for Node.js.</em> https://expressjs.com
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      Vite Team. (2024). <em>Vite – Next Generation Frontend Tooling.</em> https://vitejs.dev
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      i18next Team. (2024). <em>i18next – Internationalization-framework written in and for JavaScript.</em> https://www.i18next.com
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      AlQuran Cloud. (2024). <em>AlQuran Cloud API – Open source Quran RESTful API.</em> https://alquran.cloud/api
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      SQLite Consortium. (2024). <em>SQLite – A C-language library that implements a small, fast, self-contained SQL database engine.</em> https://www.sqlite.org
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      Auth0. (2024). <em>JSON Web Tokens – Introduction to JWT.</em> https://jwt.io/introduction
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      Google Fonts. (2024). <em>Amiri – A Classical Arabic Typeface.</em> https://fonts.google.com/specimen/Amiri
+    </li>
+    <li style="margin-bottom:0.6rem;">
+      MDN Web Docs. (2024). <em>Cross-Origin Resource Sharing (CORS).</em> Mozilla Developer Network. https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+    </li>
+  </ol>
+
+  <br><br>
+  <hr class="section-hr">
+  <p style="text-align:center; color:#555; font-size:10pt; margin-top:2rem;">
+    Bu rapor, Kur'an Hatim Takip Web Uygulaması projesinin teknik belgelemesi amacıyla hazırlanmıştır.<br>
+    Nisan 2026 — Tüm hakları saklıdır.
+  </p>
+</div>
+
+</body>
+</html>

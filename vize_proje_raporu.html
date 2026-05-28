@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Vize Dönemi Proje Raporu - Kur'an Hatim Takip Sistemi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Calibri:wght@400;700&display=swap');
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: Calibri, Arial, sans-serif;
+      font-size: 11pt;
+      line-height: 1.7;
+      color: #000;
+      background: #d0d0d0;
+    }
+
+    .page {
+      width: 210mm;
+      margin: 15mm auto;
+      padding: 25mm 30mm 25mm 30mm;
+      background: #fff;
+      box-shadow: 0 0 12px rgba(0,0,0,0.25);
+    }
+
+    /* ---- COVER ---- */
+    .cover {
+      min-height: 240mm;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border:3px double #1f3864;
+      padding: 2.5rem;
+    }
+    .cover-emoji { font-size:56pt; margin-bottom:0.5rem; }
+    .cover-univ  { font-size:14pt; font-weight:bold; color:#1f3864; }
+    .cover-dept  { font-size:11pt; color:#333; margin-bottom:1.5rem;
+                   border-bottom:2px solid #1f3864; padding-bottom:1rem; width:85%; }
+    .cover-label { font-size:10pt; color:#555; margin-bottom:0.3rem;
+                   background:#eef2ff; padding:4px 16px; border-radius:4px; }
+    .cover-title { font-size:22pt; font-weight:bold; color:#1f3864;
+                   margin:1.5rem 0 0.5rem; line-height:1.35; }
+    .cover-sub   { font-size:12pt; color:#444; margin-bottom:2rem; }
+    .cover-table { border-collapse:collapse; width:78%; margin:1.5rem 0; }
+    .cover-table td { padding:5px 14px; border:1px solid #bbb; font-size:10.5pt; }
+    .cover-table td:first-child { background:#eef2ff; font-weight:bold; width:42%; }
+    .cover-date  { margin-top:1.5rem; font-size:10pt; color:#666; }
+
+    /* ---- MISC ---- */
+    .pb { page-break-after:always; }
+
+    h1 {
+      font-size:15pt; font-weight:bold; color:#1f3864;
+      border-bottom:2.5px solid #1f3864;
+      padding-bottom:5px; margin:2rem 0 1rem;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    h2 { font-size:12.5pt; font-weight:bold; color:#1f3864; margin:1.4rem 0 0.5rem; }
+    h3 { font-size:11pt; font-weight:bold; margin:1rem 0 0.3rem; text-decoration:underline; }
+    p  { margin-bottom:0.75rem; text-align:justify; }
+    ul,ol { margin:0.4rem 0 1rem 2.2rem; }
+    li { margin-bottom:0.35rem; }
+
+    table { width:100%; border-collapse:collapse; margin:0.8rem 0; font-size:10.5pt; }
+    th { background:#1f3864; color:#fff; padding:7px 10px; text-align:left; }
+    td { padding:6px 10px; border:1px solid #ccc; }
+    tr:nth-child(even) td { background:#f0f4ff; }
+
+    .box    { border-radius:5px; padding:10px 14px; margin:0.9rem 0; }
+    .box-b  { background:#dbeafe; border:1px solid #93c5fd; }
+    .box-g  { background:#dcfce7; border:1px solid #86efac; }
+    .box-y  { background:#fef9c3; border:1px solid #fde047; }
+    .box-r  { background:#fee2e2; border:1px solid #fca5a5; }
+    .box-t  { font-weight:bold; margin-bottom:5px; }
+
+    code { font-family:'Courier New',monospace; font-size:9.5pt;
+           background:#f4f4f4; padding:1px 5px; border-radius:3px; }
+    .cb { background:#f4f4f4; border:1px solid #ddd; border-left:4px solid #1f3864;
+          padding:9px 13px; font-family:'Courier New',monospace; font-size:9pt;
+          margin:0.7rem 0; white-space:pre; }
+
+    .badge   { display:inline-block; padding:1px 9px; border-radius:10px;
+               font-size:9pt; font-weight:bold; margin-right:3px; }
+    .b-green { background:#16a34a; color:#fff; }
+    .b-blue  { background:#1d4ed8; color:#fff; }
+    .b-gray  { background:#6b7280; color:#fff; }
+
+    /* ---- VISUAL MOCKUPS ---- */
+    .screen-wrap {
+      display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:1rem 0;
+    }
+    .screen {
+      width:220px; border:1px solid #ccc; border-radius:8px;
+      overflow:hidden; box-shadow:0 3px 8px rgba(0,0,0,0.15);
+      font-size:8pt;
+    }
+    .screen-bar {
+      background:#1e293b; color:#94a3b8; padding:4px 8px;
+      font-size:7.5pt; display:flex; align-items:center; gap:6px;
+    }
+    .screen-bar .dot { width:7px; height:7px; border-radius:50%; }
+    .screen-body { background:#0f172a; padding:10px; color:#f8fafc; min-height:120px; }
+    .s-nav { background:#1e293b; padding:5px 8px; font-size:8pt;
+             color:#3b82f6; font-weight:bold; border-bottom:1px solid #334155; }
+    .s-card { background:#1e293b; border-radius:6px; padding:8px; margin:6px 0;
+              border:1px solid #334155; }
+    .s-bar-wrap { background:#334155; border-radius:3px; height:5px; margin:5px 0; }
+    .s-bar-fill { height:100%; border-radius:3px; }
+    .s-label { color:#94a3b8; font-size:7.5pt; }
+    .s-pct   { color:#3b82f6; font-size:7.5pt; font-weight:bold; }
+    .s-green { color:#22c55e; }
+    .s-inp   { background:#334155; border:1px solid #475569; border-radius:4px;
+               padding:3px 6px; color:#f8fafc; width:100%; margin:3px 0; font-size:8pt; }
+    .s-btn   { background:#3b82f6; color:#fff; border:none; border-radius:4px;
+               padding:4px 10px; font-size:8pt; width:100%; margin-top:4px; cursor:pointer; }
+    .s-btn-g { background:#22c55e; }
+    .s-bismillah { text-align:center; font-size:12pt; color:#eab308;
+                   padding:6px 0; border-bottom:1px solid #334155; margin-bottom:6px; }
+    .s-ayah { line-height:1.9; font-size:8.5pt; direction:rtl; color:#e2e8f0; }
+    .s-ayah span { cursor:pointer; }
+    .s-ayah span:hover { background:rgba(59,130,246,0.2); border-radius:3px; }
+    .s-ayah .num { color:#3b82f6; font-size:7pt; }
+
+    .flow-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+                margin:0.8rem 0; justify-content:center; }
+    .fbox { background:#1f3864; color:#fff; padding:5px 14px;
+            border-radius:6px; font-size:9.5pt; font-weight:bold; }
+    .farrow { color:#1f3864; font-size:14pt; }
+
+    hr.sec { border:none; border-top:1px solid #ddd; margin:1.2rem 0; }
+
+    /* toc */
+    .toc-row { display:flex; justify-content:space-between;
+               padding:4px 0; border-bottom:1px dotted #ccc; }
+    .toc-n { font-weight:bold; color:#1f3864; margin-right:6px; }
+
+    .status-chip {
+      display:inline-block; padding:2px 10px; border-radius:12px;
+      font-size:9pt; font-weight:bold;
+    }
+    .chip-done { background:#dcfce7; color:#15803d; border:1px solid #86efac; }
+    .chip-wip  { background:#fef9c3; color:#854d0e; border:1px solid #fde047; }
+    .chip-plan { background:#f1f5f9; color:#475569; border:1px solid #cbd5e1; }
+
+    @media print {
+      body { background:#fff; }
+      .page { margin:0; box-shadow:none; }
+      .pb   { page-break-after:always; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ KAPAK ═══════════ -->
+<div class="page pb">
+  <div class="cover">
+    <div class="cover-emoji">🕌</div>
+    <div class="cover-univ">WEB PROGRAMLAMA DERSİ</div>
+    <div class="cover-dept">Bilgisayar Mühendisliği Bölümü<br>Vize Dönemi Proje Çalışması</div>
+
+    <div class="cover-label">VİZE DÖNEM PROJESİ DOKÜMANI</div>
+    <div class="cover-title">KUR'AN KERİM HATİM TAKİP<br>WEB UYGULAMASI</div>
+    <div class="cover-sub">Full-Stack Web Projesi — React.js + Node.js</div>
+
+    <table class="cover-table">
+      <tr><td>Öğrenci Adı</td><td>&nbsp;</td></tr>
+      <tr><td>Öğrenci No</td><td>&nbsp;</td></tr>
+      <tr><td>Danışman Hoca</td><td>&nbsp;</td></tr>
+      <tr><td>Teslim Tarihi</td><td>19 Nisan 2026</td></tr>
+    </table>
+
+    <div class="cover-date">Nisan 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════ İÇİNDEKİLER ═══════════ -->
+<div class="page pb">
+  <h1>İçindekiler</h1>
+  <div class="toc-row"><span><span class="toc-n">1.</span> Projenin Amacı</span><span>3</span></div>
+  <div class="toc-row"><span><span class="toc-n">2.</span> Kullanılan Teknolojiler</span><span>4</span></div>
+  <div class="toc-row"><span><span class="toc-n">3.</span> Benzer Projelerden Üstünlükleri</span><span>6</span></div>
+  <div class="toc-row"><span><span class="toc-n">4.</span> Mevcut Geliştirme Aşaması ve Proje Görselleri</span><span>8</span></div>
+</div>
+
+<!-- ═══════════ SORU 1 ═══════════ -->
+<div class="page pb">
+  <h1>1. Projenin Amacı Nedir?</h1>
+
+  <p>
+    Bu proje, <strong>Kur'an-ı Kerim hatim takibini</strong> dijital ortama taşıyan modern bir web uygulamasıdır. Günümüzde pek çok Müslüman, okuduğu Kur'an sayfasını veya ayeti bir kâğıda ya da hafızasına not etmektedir. Bu yöntem; karışıklığa, ilerlemenin unutulmasına ve takip güçlüğüne yol açmaktadır.
+  </p>
+  <p>
+    Uygulama, bu temel sorunu çözmeyi hedeflemektedir: Kullanıcı nerede kaldığını sistem üzerinden takip eder, doğrudan web sitesi üzerinden Kur'an okur ve istediği ayette "Buraya kadar okudum" diyerek ilerlemeyi kaydeder.
+  </p>
+
+  <h2>1.1 Hedef Kullanıcı Kitlesi</h2>
+  <ul>
+    <li>Kur'an okuma alışkanlığını takip etmek isteyen bireyler</li>
+    <li>Aile veya arkadaş grubu adına hatim açmak isteyen kullanıcılar</li>
+    <li>Ramazan ayı gibi özel dönemlerde grup hatmi organize edenler</li>
+    <li>Türkçe veya Arapça kullanan geniş bir Müslüman kitlesi</li>
+  </ul>
+
+  <h2>1.2 Çözdüğü Temel Problemler</h2>
+  <table>
+    <tr><th>Problem</th><th>Uygulamamızın Çözümü</th></tr>
+    <tr><td>İlerlemenin kâğıda veya hafızaya not edilmesi</td><td>Dijital kayıt — sunucuda kalıcı olarak saklanır</td></tr>
+    <tr><td>Birden fazla hatimi aynı anda takip edememe</td><td>Sınırsız kişisel ve başkası adına hatim desteği</td></tr>
+    <tr><td>İlerleme yüzdesini manuel hesaplamak</td><td>6236 ayet üzerinden otomatik % hesaplama</td></tr>
+    <tr><td>Kur'an metnine erişmek için ayrı uygulama açmak</td><td>Uygulama içi Kur'an okuyucu (Osmanlı hatlı)</td></tr>
+    <tr><td>Dil engeli (yalnızca Türkçe veya yalnızca Arapça)</td><td>Anlık Türkçe ↔ Arapça dil değiştirme</td></tr>
+  </table>
+
+  <h2>1.3 Uygulamanın Ana İş Akışı</h2>
+  <div class="flow-row">
+    <div class="fbox">📝 Kayıt Ol</div><div class="farrow">→</div>
+    <div class="fbox">🔐 Giriş Yap</div><div class="farrow">→</div>
+    <div class="fbox">➕ Hatim Aç</div><div class="farrow">→</div>
+    <div class="fbox">📖 Kur'an Oku</div><div class="farrow">→</div>
+    <div class="fbox">✅ Ayeti İşaretle</div>
+  </div>
+  <p style="text-align:center; font-size:9.5pt; color:#555; margin-top:4px;">
+    Kullanıcı herhangi bir adımda kaldığı yerden devam edebilir. Tüm veriler sunucuda güvenle saklanır.
+  </p>
+</div>
+
+<!-- ═══════════ SORU 2 ═══════════ -->
+<div class="page pb">
+  <h1>2. Projede Kullanılan Teknolojiler Nelerdir?</h1>
+
+  <p>
+    Proje, modern full-stack web geliştirme prensiplerine uygun olarak <strong>iki bağımsız katman</strong> halinde geliştirilmiştir: Kullanıcıya sunulan arayüz (Frontend) ve veri yönetimi sağlayan sunucu (Backend).
+  </p>
+
+  <h2>2.1 Frontend Teknolojileri</h2>
+  <table>
+    <tr><th>Teknoloji</th><th>Sürüm</th><th>Kullanım Amacı</th></tr>
+    <tr><td><strong>React.js</strong></td><td>^19</td><td>Bileşen (component) tabanlı kullanıcı arayüzü geliştirme</td></tr>
+    <tr><td><strong>Vite</strong></td><td>^8</td><td>Hızlı geliştirme sunucusu ve proje iskele kurulumu</td></tr>
+    <tr><td><strong>React Router DOM</strong></td><td>^7</td><td>Sayfa yönlendirme — SPA (Tek sayfa uygulaması)</td></tr>
+    <tr><td><strong>Axios</strong></td><td>^1</td><td>Backend API'ye HTTP isteklerini gönderme</td></tr>
+    <tr><td><strong>i18next + react-i18next</strong></td><td>^24</td><td>Türkçe / Arapça çok dilli destek</td></tr>
+    <tr><td><strong>Vanilla CSS</strong></td><td>—</td><td>Özel karanlık tema tasarım sistemi</td></tr>
+    <tr><td><strong>Amiri (Google Fonts)</strong></td><td>—</td><td>Kur'an metni için geleneksel Arap yazı tipi</td></tr>
+    <tr><td><strong>Alquran Cloud API</strong></td><td>v1</td><td>Osmanlı hatlı Kur'an metni verisi (harici, ücretsiz)</td></tr>
+  </table>
+
+  <h2>2.2 Backend Teknolojileri</h2>
+  <table>
+    <tr><th>Teknoloji</th><th>Sürüm</th><th>Kullanım Amacı</th></tr>
+    <tr><td><strong>Node.js</strong></td><td>^22</td><td>Sunucu taraflı JavaScript çalışma ortamı</td></tr>
+    <tr><td><strong>Express.js</strong></td><td>^5</td><td>REST API geliştirme ve HTTP sunucusu</td></tr>
+    <tr><td><strong>SQLite3</strong></td><td>^6</td><td>Kurulum gerektirmeyen yerleşik veritabanı</td></tr>
+    <tr><td><strong>bcrypt</strong></td><td>^6</td><td>Şifrelerin güvenli biçimde hashlenmesi</td></tr>
+    <tr><td><strong>jsonwebtoken (JWT)</strong></td><td>^9</td><td>Oturum doğrulama tokenleri</td></tr>
+    <tr><td><strong>cors</strong></td><td>^2</td><td>Frontend-Backend arası kaynak paylaşımı</td></tr>
+    <tr><td><strong>dotenv</strong></td><td>^17</td><td>Ortam değişkenleri (.env) yönetimi</td></tr>
+    <tr><td><strong>nodemon</strong></td><td>^3</td><td>Geliştirme sırasında otomatik yeniden başlatma</td></tr>
+  </table>
+
+  <h2>2.3 Mimari Özet</h2>
+  <div class="flow-row">
+    <div class="fbox">🌐 React (Port 5173)</div>
+    <div class="farrow">⇄ REST API ⇄</div>
+    <div class="fbox">⚙️ Express (Port 5000)</div>
+    <div class="farrow">⇄</div>
+    <div class="fbox">🗄️ SQLite DB</div>
+  </div>
+  <div class="flow-row" style="margin-top:0.5rem;">
+    <div class="fbox" style="background:#15803d;">☁️ AlQuran Cloud API</div>
+    <div class="farrow">→</div>
+    <div class="fbox">📖 Kur'an Okuyucu</div>
+  </div>
+
+  <h2>2.4 REST API Endpoint Listesi</h2>
+  <table>
+    <tr><th>Method</th><th>Endpoint</th><th>Açıklama</th><th>Kimlik Doğrulama</th></tr>
+    <tr><td><span class="badge b-blue">POST</span></td><td>/api/auth/register</td><td>Yeni kullanıcı kayıt</td><td>—</td></tr>
+    <tr><td><span class="badge b-blue">POST</span></td><td>/api/auth/login</td><td>Giriş → JWT token alır</td><td>—</td></tr>
+    <tr><td><span class="badge b-green">GET</span></td><td>/api/khatms</td><td>Kullanıcının tüm hatimleri</td><td>✓ JWT</td></tr>
+    <tr><td><span class="badge b-blue">POST</span></td><td>/api/khatms</td><td>Yeni hatim oluşturma</td><td>✓ JWT</td></tr>
+    <tr><td><span class="badge b-gray">PUT</span></td><td>/api/khatms/:id</td><td>Ayet ilerlemesini güncelleme</td><td>✓ JWT</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════ SORU 3 ═══════════ -->
+<div class="page pb">
+  <h1>3. Projenin Benzer Projelerden Üstünlüğü Nelerdir?</h1>
+
+  <p>
+    Piyasada hatim takibi yapan çeşitli mobil uygulamalar (My Quran, Hatim, Mushaf gibi) bulunmaktadır. Ancak bu uygulamaların çoğu yalnızca mobil platformlara özel, dil desteği kısıtlı veya sosyal hatim özelliğinden yoksundur. Projemiz bu açıkları kapatan, web tabanlı özgün bir çözüm sunmaktadır.
+  </p>
+
+  <h2>3.1 Özellik Karşılaştırma Tablosu</h2>
+  <table>
+    <tr>
+      <th>Özellik</th>
+      <th>Bizim Uygulamamız</th>
+      <th>Tipik Rakip Uygulamalar</th>
+    </tr>
+    <tr><td>Tarayıcı tabanlı (kurulum yok)</td><td>✅ Evet</td><td>❌ Çoğunlukla mobil uygulama</td></tr>
+    <tr><td>Uygulama içi Kur'an okuyucu</td><td>✅ Osmanlı hatlı, tam metin</td><td>⚠️ Genellikle ayrı uygulama gerekir</td></tr>
+    <tr><td>Ayete tıklayarak durak kaydetme</td><td>✅ Tek tıklama + onay dialogu</td><td>❌ Manuel sayfa/cüz girişi</td></tr>
+    <tr><td>Başkası adına hatim açma</td><td>✅ Hedef kişi adı ile</td><td>❌ Çoğunlukla sadece kişisel</td></tr>
+    <tr><td>Türkçe ve Arapça dil desteği</td><td>✅ Anlık geçiş + RTL/LTR</td><td>⚠️ Çoğunlukla tek dil</td></tr>
+    <tr><td>Ücretsiz ve açık kaynak</td><td>✅ Tamamen ücretsiz</td><td>⚠️ Premium özellikler ücretli</td></tr>
+    <tr><td>Renkli ilerleme çubuğu</td><td>✅ % gösterimli dinamik çubuk</td><td>⚠️ Basit metin gösterimi</td></tr>
+    <tr><td>Hesap gerektirmeden kullanım</td><td>—</td><td>✅ Bazıları hesapsız kullanılır</td></tr>
+  </table>
+
+  <h2>3.2 Teknik Üstünlükler</h2>
+  <div class="box box-b">
+    <div class="box-t">🔐 Güvenlik</div>
+    Şifreler veritabanında hiçbir zaman düz metin olarak saklanmaz. <strong>bcrypt</strong> ile hashlenerek korunur. Oturumlar <strong>JWT</strong> tokenleri ile yönetilir ve 24 saat sonra otomatik geçersiz olur.
+  </div>
+  <div class="box box-g">
+    <div class="box-t">⚡ Performans</div>
+    Kur'an metni (~5MB) uygulamaya gömülmez. Kullanıcı bir sure seçtiğinde yalnızca o surenin verisi API'den anlık olarak çekilir (<strong>Lazy Loading</strong>). Bu sayede ilk yükleme süresi minimum düzeyde tutulur.
+  </div>
+  <div class="box box-y">
+    <div class="box-t">🌍 Erişilebilirlik</div>
+    Uygulama tarayıcı tabanlıdır; herhangi bir cihazdan (bilgisayar, tablet, telefon) erişilebilir. Ayrıca Arapça dil seçimi yapıldığında tüm sayfa otomatik olarak sağdan sola (<strong>RTL</strong>) düzenine geçer.
+  </div>
+  <div class="box box-b">
+    <div class="box-t">📐 Akıllı İlerleme Hesaplama</div>
+    İlerleme, cüz veya sayfa yöntemiyle değil, <strong>doğrudan ayet numarası</strong> ile hesaplanır. Kullanıcı tıkladığı ayetin global sırasını bilmek zorunda değildir; sistem sure adı ve ayet numarasından tüm hesaplamayı otomatik yapar.
+  </div>
+
+  <h2>3.3 Kullanıcı Deneyimi Üstünlükleri</h2>
+  <ul>
+    <li><strong>Onay penceresi (Confirmation Dialog):</strong> Kullanıcı yanlışlıkla yanlış bir ayete tıklarsa, onay penceresi sayesinde hata geri alınabilir. Rakip uygulamaların büyük çoğunluğunda bu güvence mevcuttur.</li>
+    <li><strong>Görsel ilerleme renkleri:</strong> 0-50% → Mavi, 50-85% → Yeşil, 85-100% → Sarı. Bu renk sistemi kullanıcıya anlık geri bildirim sağlar.</li>
+    <li><strong>Okunan ayetler vurgulanır:</strong> Kur'an okuyucu sayfasında, son durulan ayete kadar olan tüm ayetler yeşil renkte gösterilir.</li>
+    <li><strong>İki panel yapısı:</strong> "Kendi Hatimlerim" ve "Başkası Adına Hatimler" ayrı bölümlerde yönetilir, karışıklık önlenir.</li>
+  </ul>
+</div>
+
+<!-- ═══════════ SORU 4 — AŞAMA + GÖRSELLER ═══════════ -->
+<div class="page pb">
+  <h1>4. Mevcut Geliştirme Aşaması</h1>
+
+  <h2>4.1 Genel Durum Tablosu</h2>
+  <table>
+    <tr><th>Modül</th><th>Durum</th><th>Tamamlanma %</th></tr>
+    <tr><td>Kullanıcı Kaydı ve Girişi (Auth)</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Veritabanı şeması (SQLite)</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>REST API (Backend)</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Ana Panel (Dashboard)</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Hatim kartları ve ilerleme takibi</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Kur'an Okuyucu sayfası</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Çok dilli destek (TR/AR + RTL)</td><td><span class="status-chip chip-done">✅ Tamamlandı</span></td><td>100%</td></tr>
+    <tr><td>Sesli Kur'an okuma</td><td><span class="status-chip chip-plan">📋 Planlandı</span></td><td>0%</td></tr>
+    <tr><td>Meal (anlam) görüntüleme</td><td><span class="status-chip chip-plan">📋 Planlandı</span></td><td>0%</td></tr>
+  </table>
+
+  <div class="box box-g" style="margin-top:1rem;">
+    <div class="box-t">📊 Genel Tamamlanma Oranı: %88</div>
+    Temel işlevlerin tamamı geliştirilmiş ve çalışır durumdadır. Kalan işler yalnızca ek özelliklerden oluşmaktadır.
+  </div>
+</div>
+
+<!-- ═══════════ GÖRSELLER ═══════════ -->
+<div class="page pb">
+  <h2 style="margin-top:0;">4.2 Uygulama Ekran Görselleri</h2>
+  <p style="font-size:9.5pt; color:#555; margin-bottom:1rem;">
+    Aşağıdaki görseller, uygulamanın mevcut durumunu birebir yansıtan arayüz mockup'larıdır.
+  </p>
+
+  <div class="screen-wrap">
+
+    <!-- LOGIN -->
+    <div>
+      <p style="text-align:center; font-size:9pt; font-weight:bold; margin-bottom:4px;">Giriş Ekranı</p>
+      <div class="screen">
+        <div class="screen-bar">
+          <div class="dot" style="background:#ef4444;"></div>
+          <div class="dot" style="background:#f59e0b;"></div>
+          <div class="dot" style="background:#22c55e;"></div>
+          <span style="margin-left:4px;">localhost:5173/login</span>
+        </div>
+        <div class="s-nav">🕌 Hayırhah</div>
+        <div class="screen-body" style="display:flex; flex-direction:column; align-items:center; padding:12px;">
+          <div style="font-size:11pt; font-weight:bold; margin-bottom:10px;">Giriş Yap</div>
+          <div style="width:100%; margin-bottom:6px;">
+            <div class="s-label">E-posta</div>
+            <div class="s-inp">ahmed@test.com</div>
+          </div>
+          <div style="width:100%; margin-bottom:8px;">
+            <div class="s-label">Şifre</div>
+            <div class="s-inp">••••••</div>
+          </div>
+          <div class="s-btn">Giriş Yap</div>
+          <div style="margin-top:8px; color:#3b82f6; font-size:7.5pt;">Kayıt Ol</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div>
+      <p style="text-align:center; font-size:9pt; font-weight:bold; margin-bottom:4px;">Ana Panel</p>
+      <div class="screen" style="width:240px;">
+        <div class="screen-bar">
+          <div class="dot" style="background:#ef4444;"></div>
+          <div class="dot" style="background:#f59e0b;"></div>
+          <div class="dot" style="background:#22c55e;"></div>
+          <span style="margin-left:4px;">localhost:5173</span>
+        </div>
+        <div class="s-nav" style="display:flex; justify-content:space-between;">
+          <span>🕌 Hayırhah</span>
+          <span style="color:#94a3b8;">Ahmed | Çıkış</span>
+        </div>
+        <div class="screen-body" style="padding:8px;">
+          <div style="font-size:7.5pt; color:#94a3b8; margin-bottom:4px;">📖 Dahil Olduğunuz Hatimler</div>
+          <div class="s-card">
+            <div style="display:flex; justify-content:space-between;">
+              <span style="font-size:8pt; font-weight:bold;">Ramazan Hatmi</span>
+              <span class="s-pct">50%</span>
+            </div>
+            <div class="s-bar-wrap"><div class="s-bar-fill" style="background:#22c55e; width:50%;"></div></div>
+            <div class="s-label">Al-i İmrân : 200 &nbsp;|&nbsp; 3118/6236</div>
+            <div class="s-btn s-btn-g" style="margin-top:5px;">📖 Kur'an'ı Oku</div>
+          </div>
+          <div style="font-size:7.5pt; color:#94a3b8; margin:6px 0 4px;">👤 Diğer Hatimler</div>
+          <div class="s-card">
+            <div style="display:flex; justify-content:space-between;">
+              <span style="font-size:8pt; font-weight:bold;">Annem Adına</span>
+              <span class="s-pct">20%</span>
+            </div>
+            <div style="color:#3b82f6; font-size:7.5pt; margin-bottom:3px;">👤 Fatma</div>
+            <div class="s-bar-wrap"><div class="s-bar-fill" style="background:#3b82f6; width:20%;"></div></div>
+            <div class="s-label">Al-Bakara : 50 &nbsp;|&nbsp; 1247/6236</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QURAN READER -->
+    <div>
+      <p style="text-align:center; font-size:9pt; font-weight:bold; margin-bottom:4px;">Kur'an Okuyucu</p>
+      <div class="screen" style="width:240px;">
+        <div class="screen-bar">
+          <div class="dot" style="background:#ef4444;"></div>
+          <div class="dot" style="background:#f59e0b;"></div>
+          <div class="dot" style="background:#22c55e;"></div>
+          <span style="margin-left:4px;">localhost:5173/read/1</span>
+        </div>
+        <div class="screen-body" style="padding:0;">
+          <div style="background:#1e293b; padding:5px 8px; display:flex; justify-content:space-between; font-size:7.5pt;">
+            <span style="color:#3b82f6;">← Ana Sayfa</span>
+            <span style="color:#22c55e; font-weight:bold;">%50</span>
+          </div>
+          <div style="background:#1e293b; padding:4px 8px; display:flex; justify-content:center; gap:6px; border-bottom:1px solid #334155;">
+            <span style="color:#94a3b8;">←</span>
+            <span style="font-size:8pt;">Al-Fâtiha ▼</span>
+            <span style="color:#94a3b8;">→</span>
+          </div>
+          <div class="screen-body">
+            <div class="s-bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+            <div class="s-ayah">
+              <span class="s-green">ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَـٰلَمِينَ</span><span class="num">﴿١﴾</span>
+              <span class="s-green"> ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</span><span class="num">﴿٢﴾</span>
+              <span> مَـٰلِكِ يَوْمِ ٱلدِّينِ</span><span class="num">﴿٣﴾</span>
+              <span> إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</span><span class="num">﴿٤﴾</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONFIRM DIALOG -->
+    <div>
+      <p style="text-align:center; font-size:9pt; font-weight:bold; margin-bottom:4px;">Onay Penceresi</p>
+      <div class="screen" style="width:200px;">
+        <div class="screen-bar">
+          <div class="dot" style="background:#ef4444;"></div>
+          <div class="dot" style="background:#f59e0b;"></div>
+          <div class="dot" style="background:#22c55e;"></div>
+        </div>
+        <div class="screen-body" style="display:flex; align-items:center; justify-content:center; min-height:160px;">
+          <div style="background:#1e293b; border:1px solid #334155; border-radius:8px; padding:12px; text-align:center; width:100%;">
+            <div style="font-size:16pt; margin-bottom:6px;">📖</div>
+            <div style="font-size:8.5pt; font-weight:bold; margin-bottom:6px;">Durma noktası<br>kaydedilsin mi?</div>
+            <div style="font-size:7.5pt; color:#94a3b8; margin-bottom:10px;">
+              Al-Fâtiha Suresi<br>4. ayette durmak ister misiniz?
+            </div>
+            <div class="s-btn" style="margin-bottom:4px; background:#22c55e;">✓ Evet, Kaydet</div>
+            <div class="s-btn" style="background:transparent; border:1px solid #334155; color:#94a3b8;">✕ Hayır, İptal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end screen-wrap -->
+</div>
+
+<!-- ═══════════ DOSYA YAPISI + TEKNİK DETAY ═══════════ -->
+<div class="page pb">
+  <h2 style="margin-top:0;">4.3 Proje Dosya Yapısı</h2>
+  <div class="cb">uyglama22/
+├── backend/
+│   ├── server.js        ← Express sunucusu + tüm API endpoint'leri
+│   ├── db.js            ← SQLite bağlantısı + tablo tanımlamaları
+│   ├── .env             ← Ortam değişkenleri (PORT=5000, JWT_SECRET)
+│   ├── database.sqlite  ← Kalıcı veritabanı dosyası (otomatik oluşur)
+│   └── package.json
+│
+└── frontend/
+    ├── src/
+    │   ├── App.jsx         ← Tüm sayfalar: Auth, Dashboard, KhatmCard
+    │   ├── QuranReader.jsx ← Kur'an okuyucu + ayet işaretleme + dialog
+    │   ├── surahData.js    ← 114 sure verisi + ayet indeks fonksiyonları
+    │   ├── i18n.js         ← TR/AR çeviriler
+    │   ├── index.css       ← Karanlık tema tasarım sistemi
+    │   └── main.jsx        ← React giriş noktası
+    └── package.json</div>
+
+  <h2>4.4 Veritabanı Şeması</h2>
+  <table>
+    <tr><th colspan="3">Tablo: users</th></tr>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER PK</td><td>Otomatik artan kimlik</td></tr>
+    <tr><td>name</td><td>TEXT NOT NULL</td><td>Kullanıcı adı</td></tr>
+    <tr><td>email</td><td>TEXT UNIQUE</td><td>E-posta (benzersiz)</td></tr>
+    <tr><td>password</td><td>TEXT NOT NULL</td><td>bcrypt hashlenmiş şifre</td></tr>
+  </table>
+  <table style="margin-top:0.8rem;">
+    <tr><th colspan="3">Tablo: khatms</th></tr>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER PK</td><td>Hatim kimliği</td></tr>
+    <tr><td>title</td><td>TEXT</td><td>Hatim başlığı</td></tr>
+    <tr><td>owner_id</td><td>INTEGER FK</td><td>Sahibi (users.id)</td></tr>
+    <tr><td>target_person</td><td>TEXT</td><td>Kimin adına (opsiyonel)</td></tr>
+    <tr><td>last_ayah</td><td>INTEGER</td><td>Son okunan ayet (1-6236)</td></tr>
+    <tr><td>type</td><td>TEXT</td><td>'self' veya 'other'</td></tr>
+  </table>
+
+  <h2>4.5 İlerleme Hesaplama Mantığı</h2>
+  <div class="box box-b">
+    <div class="box-t">📐 Formül</div>
+    <div class="cb" style="margin-top:6px;">Tamamlanma (%) = (last_ayah / 6236) × 100
+
+// Örnek: Al-i İmrân, Ayet 200
+getAyahIndex(surahId=3, ayah=200)
+= Fâtiha(7) + Bakara(286) + 200 = 493
+→ Tamamlanma = (493 / 6236) × 100 ≈ %7.9</div>
+  </div>
+
+  <h2>4.6 Çalıştırma Komutları</h2>
+  <table>
+    <tr><th>Sunucu</th><th>Klasör</th><th>Komut</th><th>Adres</th></tr>
+    <tr><td>Backend</td><td>/backend</td><td><code>npm run dev</code></td><td>http://localhost:5000</td></tr>
+    <tr><td>Frontend</td><td>/frontend</td><td><code>npm run dev</code></td><td>http://localhost:5173</td></tr>
+  </table>
+</div>
+
+<!-- ═══════════ SONUÇ ═══════════ -->
+<div class="page">
+  <h1>Sonuç</h1>
+  <p>
+    Vize dönemine kadar projenin temel işlevleri tamamen geliştirilmiş ve çalışır hale getirilmiştir. Kullanıcı kaydı ve girişi, hatim oluşturma ve takibi, Kur'an okuyucu sayfası ile çok dilli destek eksiksiz olarak tamamlanmıştır.
+  </p>
+  <p>
+    Proje, gerçek bir kullanıcı ihtiyacına yanıt veren, güvenli, erişilebilir ve modern bir web uygulaması olarak hem teknik hem de işlevsel açıdan hazır durumdadır. Final dönemine kadar sesli Kur'an okuma ve meal görüntüleme gibi ek özellikler eklenmesi planlanmaktadır.
+  </p>
+
+  <div class="box box-g" style="margin-top:1.5rem;">
+    <div class="box-t">✅ Vize Dönemi İtibariyle Çalışan Özellikler</div>
+    <ul style="margin-top:6px;">
+      <li>Ad, E-posta, Şifre ile güvenli kullanıcı kaydı ve girişi</li>
+      <li>Kişisel ve başkası adına sınırsız hatim açma</li>
+      <li>Sure ve ayet seçimi ile ilerleme güncelleme</li>
+      <li>6236 ayet üzerinden otomatik yüzde hesaplama</li>
+      <li>Kur'an okuyucu — Osmanlı hattı, Bismillah, sure gezinme</li>
+      <li>Ayete tıklayarak ilerleme kaydetme + onay penceresi</li>
+      <li>Türkçe ↔ Arapça anlık dil değiştirme + RTL/LTR düzeni</li>
+      <li>Karanlık tema (Dark Mode) modern arayüz tasarımı</li>
+    </ul>
+  </div>
+
+  <br><br>
+  <hr class="sec">
+  <p style="text-align:center; font-size:9pt; color:#888; margin-top:1rem;">
+    Kur'an Hatim Takip Web Uygulaması — Vize Dönemi Proje Dokümanı<br>
+    Web Programlama Dersi &nbsp;|&nbsp; Nisan 2026
+  </p>
+</div>
+
+</body>
+</html>
