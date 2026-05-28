@@ -8,9 +8,7 @@
 
 ## 📸 واجهة المشروع (Screenshots)
 
-*(يمكنك وضع لقطات شاشة لتطبيقك هنا لتبهر المشاهدين)*
-
-![Hero Image](./frontend/src/assets/hero.png)
+![Dashboard Preview](./frontend/src/assets/dashboard.png)
 
 ---
 
