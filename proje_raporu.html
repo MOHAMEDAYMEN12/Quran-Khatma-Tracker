@@ -284,11 +284,11 @@
     <div class="project-subtitle">Full-Stack Web Geliştirme Projesi<br>(React.js + Node.js + SQLite)</div>
 
     <table class="info-table">
-      <tr><td>Öğrenci Adı</td><td>&#160;</td></tr>
-      <tr><td>Öğrenci No</td><td>&#160;</td></tr>
+      <tr><td>Öğrenci Adı</td><td>Mohamed Ayman</td></tr>
+      <tr><td>Öğrenci No</td><td>MOHAMEDAYMEN12</td></tr>
       <tr><td>Ders Adı</td><td>Web Programlama</td></tr>
-      <tr><td>Danışman</td><td>&#160;</td></tr>
-      <tr><td>Teslim Tarihi</td><td>Nisan 2026</td></tr>
+      <tr><td>Danışman</td><td>&nbsp;</td></tr>
+      <tr><td>Teslim Tarihi</td><td>7 Haziran 2026</td></tr>
     </table>
 
     <div class="cover-date">Ankara, Türkiye — 2026</div>
@@ -299,38 +299,41 @@
 <div class="page page-break">
   <h1>İçindekiler</h1>
 
-  <div class="toc-item"><span><span class="toc-num">1.</span> Proje Özeti</span><span>3</span></div>
+  <div class="toc-item"><span><span class="toc-num">1.</span> Proje Özeti ve Amacı</span><span>3</span></div>
   <div class="toc-item"><span><span class="toc-num">2.</span> Proje Hedefleri ve Gereksinimler</span><span>3</span></div>
-  <div class="toc-item"><span><span class="toc-num">3.</span> Kullanılan Teknolojiler</span><span>4</span></div>
-  <div class="toc-item"><span><span class="toc-num">4.</span> Sistem Mimarisi</span><span>5</span></div>
-  <div class="toc-item"><span><span class="toc-num">5.</span> Veritabanı Tasarımı</span><span>6</span></div>
-  <div class="toc-item"><span><span class="toc-num">6.</span> Backend Geliştirme (Node.js & Express)</span><span>7</span></div>
-  <div class="toc-item"><span><span class="toc-num">7.</span> Frontend Geliştirme (React.js)</span><span>8</span></div>
-  <div class="toc-item"><span><span class="toc-num">8.</span> Karşılaşılan Sorunlar ve Çözümleri</span><span>10</span></div>
-  <div class="toc-item"><span><span class="toc-num">9.</span> Ekran Görüntüleri ve Akış Diyagramları</span><span>12</span></div>
-  <div class="toc-item"><span><span class="toc-num">10.</span> Sonuç ve Değerlendirme</span><span>13</span></div>
-  <div class="toc-item"><span><span class="toc-num">11.</span> Kaynakça</span><span>14</span></div>
+  <div class="toc-item"><span><span class="toc-num">3.</span> Geliştirme Zaman Çizelgesi (Timeline)</span><span>4</span></div>
+  <div class="toc-item"><span><span class="toc-num">4.</span> Kullanılan Teknolojiler</span><span>5</span></div>
+  <div class="toc-item"><span><span class="toc-num">5.</span> Sistem Mimarisi</span><span>6</span></div>
+  <div class="toc-item"><span><span class="toc-num">6.</span> Veritabanı Tasarımı</span><span>7</span></div>
+  <div class="toc-item"><span><span class="toc-num">7.</span> Backend Geliştirme (Node.js & Express)</span><span>8</span></div>
+  <div class="toc-item"><span><span class="toc-num">8.</span> Frontend Geliştirme (React.js)</span><span>9</span></div>
+  <div class="toc-item"><span><span class="toc-num">9.</span> Karşılaşılan Sorunlar ve Çözümleri</span><span>11</span></div>
+  <div class="toc-item"><span><span class="toc-num">10.</span> Uygulama Ekran Görüntüleri Açıklaması</span><span>12</span></div>
+  <div class="toc-item"><span><span class="toc-num">11.</span> Sonuç ve Değerlendirme</span><span>14</span></div>
+  <div class="toc-item"><span><span class="toc-num">12.</span> Kaynakça</span><span>15</span></div>
 </div>
 
-<!-- ==================== BÖLÜM 1: ÖZET ==================== -->
+<!-- ==================== BÖLÜM 1: ÖZET VE AMAÇ ==================== -->
 <div class="page page-break">
-  <h1>1. Proje Özeti</h1>
+  <h1>1. Proje Özeti ve Amacı</h1>
   <p>
-    Bu proje, Müslümanların Kur'an-ı Kerim okuma süreçlerini takip edebilmeleri için geliştirilmiş modern bir web uygulamasıdır. Kullanıcılar sisteme kayıt olarak kendi okuma ilerlemelerini takip edebilir, başka kişiler adına hatim başlatabilir ve doğrudan uygulama üzerinden Kur'an-ı Kerim okuyabilirler.
+    Bu proje, Müslümanların Kur'an-ı-Kerim okuma ve hatim süreçlerini dijitalleştirmek ve kolaylaştırmak amacıyla geliştirilmiştir. Kullanıcılar sisteme üye olarak kendi bireysel hatimlerini takip edebildikleri gibi, modern bir işbirlikçi araç olan <strong>Grup Hatmi (Collective/Group Khatma)</strong> özelliğini kullanarak diğer insanlarla ortak hatimler tamamlayabilirler.
   </p>
   <p>
-    Uygulama, kullanıcı dostu arayüzü ve çift dil desteği (Türkçe ve Arapça) ile geniş bir kitleye hitap etmektedir. Proje, modern full-stack web teknolojileri olan <strong>React.js</strong> ve <strong>Node.js</strong> kullanılarak geliştirilmiştir.
+    <strong>Projenin Temel Amacı:</strong> Bireysel okuma alışkanlıklarını düzenli hale getirmek, cüzlerin kimler tarafından okunduğunu şeffaf bir şekilde yönetmek ve fiziksel olarak koordine edilmesi zor olan toplu Kur'an hatimlerini tamamen web üzerinden yönetilebilir hale getirmektir. Ayrıca, kullanıcıların gizliliğini korumak adına "Grup Hatmi" katılımlarında gerçek adını gizleyerek "Hayırsever / Gizli Katılımcı" olarak cüz rezerve edebilmesini sağlar.
   </p>
 
   <div class="info-box">
     <div class="box-title">📌 Proje Özellikleri</div>
     <ul>
       <li>Kullanıcı kaydı ve oturum yönetimi (JWT tabanlı kimlik doğrulama)</li>
-      <li>Birden fazla hatim başlatma ve takip etme</li>
-      <li>Sure ve ayet bazlı ilerleme hesaplama (6236 ayet üzerinden)</li>
-      <li>Kur'an-ı Kerim görüntüleyici (Osmanlı Hattı)</li>
-      <li>Ayet işaretleme ve ilerleme kaydetme özelliği</li>
-      <li>Türkçe / Arapça dil desteği ve RTL/LTR düzeni</li>
+      <li>Bireysel hatim takibi (sure ve ayet bazlı ilerleme, 6236 ayet üzerinden)</li>
+      <li>Grup Hatmi başlatma (Ramazan Hatmi, Aile Hatmi vb. başlıklarla)</li>
+      <li>30 Cüzün farklı kullanıcılar tarafından kilitlenerek rezerve edilmesi</li>
+      <li>Gizli Katılımcı (Anonymous) modu ile kimlik korumalı cüz tamamlama</li>
+      <li>Her katılımcı için sadece kendi rezerve ettiği cüzler üzerinden ilerleme hesabı</li>
+      <li>Tüm cüzler bittiğinde grup hatmi durumunun otomatik "Tamamlandı" olarak güncellenmesi</li>
+      <li>Özel Cüz Okuyucu (JuzReader) ile doğrudan hedeflenen cüze geçiş</li>
     </ul>
   </div>
 
@@ -373,7 +376,7 @@
     </tr>
     <tr>
       <td>F-06</td>
-      <td>Kur'an okuma sayfası</td>
+      <td>Bireysel Kur'an okuma sayfası</td>
       <td>Yüksek</td>
       <td><span class="badge green">✓ Tamamlandı</span></td>
     </tr>
@@ -385,8 +388,32 @@
     </tr>
     <tr>
       <td>F-08</td>
-      <td>Türkçe / Arapça dil değiştirme</td>
+      <td>Türkçe / Arapça dil değiştirme ve RTL desteği</td>
       <td>Orta</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-09</td>
+      <td>Grup Hatmi oluşturma ve listeleme</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-10</td>
+      <td>Cüz rezervasyon kilitleme ve çakışma önleme</td>
+      <td>Yüksek</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-11</td>
+      <td>Gizli Katılım (Anonim rezervasyon) desteği</td>
+      <td>Orta</td>
+      <td><span class="badge green">✓ Tamamlandı</span></td>
+    </tr>
+    <tr>
+      <td>F-12</td>
+      <td>Cüz okuma (JuzReader) ve cüz bazlı tamamlama</td>
+      <td>Yüksek</td>
       <td><span class="badge green">✓ Tamamlandı</span></td>
     </tr>
   </table>
@@ -402,11 +429,86 @@
   </ul>
 </div>
 
-<!-- ==================== BÖLÜM 3: TEKNOLOJİLER ==================== -->
+<!-- ==================== BÖLÜM 3: GELİŞTİRME ZAMAN ÇİZGELGESİ ==================== -->
 <div class="page page-break">
-  <h1>3. Kullanılan Teknolojiler</h1>
+  <h1>3. Geliştirme Zaman Çizelgesi (Timeline)</h1>
+  <p>
+    Projenin planlanması, veritabanının tasarlanması, kodlanması ve test edilmesine ilişkin haftalık süreç çizelgesi aşağıda belirtilmiştir:
+  </p>
+  
+  <h2>3.1 Süreç Takvimi</h2>
+  <table>
+    <tr><th>Tarih / Hafta</th><th>Yapılan Çalışmalar</th><th>Kullanılan Araçlar</th></tr>
+    <tr>
+      <td><strong>1-2. Hafta</strong><br>(15 - 28 Şubat 2026)</td>
+      <td>
+        • Gereksinim analizi yapıldı.<br>
+        • Figma üzerinde arayüz taslakları oluşturuldu.<br>
+        • Proje dizini yapılandırıldı, Git başlatıldı.
+      </td>
+      <td>Figma, Git, VS Code</td>
+    </tr>
+    <tr>
+      <td><strong>3-4. Hafta</strong><br>(1 - 15 Mart 2026)</td>
+      <td>
+        • Node.js + Express sunucusu yapılandırıldı.<br>
+        • SQLite veritabanı kuruldu ve <code>users</code> ve <code>khatms</code> tabloları oluşturuldu.<br>
+        • <code>bcrypt</code> ve <code>JWT</code> ile kimlik doğrulama API'leri yazıldı.
+      </td>
+      <td>Express, SQLite, JWT, bcrypt</td>
+    </tr>
+    <tr>
+      <td><strong>5-6. Hafta</strong><br>(16 - 31 Mart 2026)</td>
+      <td>
+        • React.js arayüzü kuruldu, Context API ile global Auth Context yazıldı.<br>
+        • <code>react-i18next</code> entegre edilerek Türkçe-Arapça anlık geçiş ve RTL yönlendirmeleri eklendi.
+      </td>
+      <td>React, i18next, CSS</td>
+    </tr>
+    <tr>
+      <td><strong>7-8. Hafta</strong><br>(1 - 19 Nisan 2026)</td>
+      <td>
+        • <code>QuranReader</code> (Kur'an Görüntüleyici) geliştirildi.<br>
+        • Harici <code>Alquran Cloud API</code> bağlantısı sağlandı ve ayet tıklayarak durak kaydetme onay dialogu yazıldı.<br>
+        • <strong>Vize Proje Raporu</strong> hazırlandı ve teslim edildi.
+      </td>
+      <td>Axios, REST API, Word/HTML</td>
+    </tr>
+    <tr>
+      <td><strong>9-10. Hafta</strong><br>(20 Nisan - 10 Mayıs 2026)</td>
+      <td>
+        • <strong>Grup Hatmi (Collective Khatma)</strong> tasarım planı çizildi.<br>
+        • Veritabanı şeması genişletilerek <code>group_khatms</code> ve <code>group_khatm_reservations</code> tabloları eklendi.<br>
+        • Grup oluşturma ve cüz kilitleme/rezervasyon API'leri backend tarafında geliştirildi.
+      </td>
+      <td>SQLite, REST APIs, Postman</td>
+    </tr>
+    <tr>
+      <td><strong>11-12. Hafta</strong><br>(11 - 25 Mayıs 2026)</td>
+      <td>
+        • Frontend tarafında <code>GroupDashboard</code> ve <code>GroupKhatmaDetails</code> arayüzleri tasarlandı.<br>
+        • 30 Cüz için etkileşimli cüz seçim paneli ve gizli katılımcı (anonim) seçeneği yerleştirildi.<br>
+        • <code>JuzReader.jsx</code> yazıldı; cüze özel okuma ve bismillah/sure gruplama mantığı entegre edildi.
+      </td>
+      <td>React, Axios, Amiri Font</td>
+    </tr>
+    <tr>
+      <td><strong>13. Hafta (Son Aşamalar)</strong><br>(26 Mayıs - 7 Haziran 2026)</td>
+      <td>
+        • Güvenlik güncellemesi yapıldı: Token süresi dolduğunda (401/403) otomatik güvenli çıkış (interceptor) yazıldı.<br>
+        • Proje son kez test edildi ve GitHub'a yüklendi.<br>
+        • <strong>Final Proje Raporu</strong> ve sunum belgelemesi tamamlandı.
+      </td>
+      <td>GitHub, Git, Node.js</td>
+    </tr>
+  </table>
+</div>
 
-  <h2>3.1 Frontend Teknolojileri</h2>
+<!-- ==================== BÖLÜM 4: TEKNOLOJİLER ==================== -->
+<div class="page page-break">
+  <h1>4. Kullanılan Teknolojiler</h1>
+
+  <h2>4.1 Frontend Teknolojileri</h2>
   <table>
     <tr><th>Teknoloji</th><th>Versiyon</th><th>Kullanım Amacı</th></tr>
     <tr><td>React.js</td><td>^19.x</td><td>Kullanıcı arayüzü bileşenleri</td></tr>
@@ -419,7 +521,7 @@
     <tr><td>Alquran Cloud API</td><td>v1</td><td>Kur'an metni verisi (Osmanlı hattı)</td></tr>
   </table>
 
-  <h2>3.2 Backend Teknolojileri</h2>
+  <h2>4.2 Backend Teknolojileri</h2>
   <table>
     <tr><th>Teknoloji</th><th>Versiyon</th><th>Kullanım Amacı</th></tr>
     <tr><td>Node.js</td><td>^22.x</td><td>Sunucu taraflı JavaScript çalışma ortamı</td></tr>
@@ -432,7 +534,7 @@
     <tr><td>nodemon</td><td>^3.x</td><td>Otomatik sunucu yeniden başlatma</td></tr>
   </table>
 
-  <h2>3.3 Geliştirme Araçları</h2>
+  <h2>4.3 Geliştirme Araçları</h2>
   <table>
     <tr><th>Araç</th><th>Kullanım Amacı</th></tr>
     <tr><td>Visual Studio Code</td><td>Kod editörü</td></tr>
@@ -442,11 +544,11 @@
   </table>
 </div>
 
-<!-- ==================== BÖLÜM 4: MİMARİ ==================== -->
+<!-- ==================== BÖLÜM 5: MİMARİ ==================== -->
 <div class="page page-break">
-  <h1>4. Sistem Mimarisi</h1>
+  <h1>5. Sistem Mimarisi</h1>
 
-  <h2>4.1 Genel Mimari</h2>
+  <h2>5.1 Genel Mimari</h2>
   <p>
     Uygulama, <strong>İstemci-Sunucu (Client-Server)</strong> mimarisi üzerine inşa edilmiştir. Frontend ve Backend birbirinden tamamen bağımsız olup aralarındaki iletişim <strong>REST API</strong> aracılığıyla gerçekleşmektedir.
   </p>
@@ -467,7 +569,7 @@
     <div class="flow-item">🌐 React (Kur'an Okuyucu)</div>
   </div>
 
-  <h2>4.2 Proje Dizin Yapısı</h2>
+  <h2>5.2 Proje Dizin Yapısı</h2>
   <div class="code-block">uyglama22/
 ├── backend/
 │   ├── server.js          → Ana Express sunucusu & API endpoint'leri
@@ -478,15 +580,16 @@
 │
 └── frontend/
     ├── src/
-    │   ├── App.jsx         → Ana uygulama (Auth, Dashboard, KhatmCard)
-    │   ├── QuranReader.jsx → Kur'an okuyucu sayfası
+    │   ├── App.jsx         → Ana uygulama (Auth, Dashboard, GroupDashboard, GroupKhatmaDetails)
+    │   ├── QuranReader.jsx → Bireysel Kur'an okuyucu sayfası
+    │   ├── JuzReader.jsx   → Grup cüz okuyucu sayfası
     │   ├── surahData.js    → 114 sure verisi & ayet indeks yardımcıları
     │   ├── i18n.js         → Türkçe/Arapça çeviri dosyası
     │   ├── index.css       → Global stiller (karanlık tema)
     │   └── main.jsx        → React giriş noktası
     └── package.json        → React bağımlılıkları</div>
 
-  <h2>4.3 Kimlik Doğrulama Akışı</h2>
+  <h2>5.3 Kimlik Doğrulama Akışı</h2>
   <div class="flow" style="flex-direction:column; align-items:flex-start; padding-left:2rem;">
     <div style="display:flex; align-items:center; gap:1rem; margin-bottom:0.5rem;">
       <div class="flow-item" style="width:180px;">1. Kullanıcı Kaydı</div>
@@ -501,20 +604,20 @@
       <span style="color:#555; font-size:10pt;">Token → Authorization header → Backend doğrular → Veri döndürür</span>
     </div>
     <div style="display:flex; align-items:center; gap:1rem;">
-      <div class="flow-item" style="width:180px; background:#2e7d32;">4. Çıkış</div>
-      <span style="color:#555; font-size:10pt;">LocalStorage temizlenir → Token geçersiz → Ana sayfaya yönlendirilir</span>
+      <div class="flow-item" style="width:180px; background:#2e7d32;">4. Çıkış / Token Kaybı</div>
+      <span style="color:#555; font-size:10pt;">LocalStorage temizlenir → Token silinir → Kullanıcı otomatik çıkış yapar</span>
     </div>
   </div>
 </div>
 
-<!-- ==================== BÖLÜM 5: VERİTABANI ==================== -->
+<!-- ==================== BÖLÜM 6: VERİTABANI ==================== -->
 <div class="page page-break">
-  <h1>5. Veritabanı Tasarımı</h1>
+  <h1>6. Veritabanı Tasarımı</h1>
   <p>
-    Veritabanı olarak kurulum gerektirmeyen, dosya tabanlı <strong>SQLite</strong> seçilmiştir. Bu tercih, projenin taşınabilirliğini ve kurulum kolaylığını artırmaktadır.
+    Veritabanı olarak dosya tabanlı, hafif ilişkisel veritabanı motoru olan <strong>SQLite</strong> kullanılmıştır. Projede bireysel hatimler ve grup hatimleri için dört adet ana tablo yer almaktadır.
   </p>
 
-  <h2>5.1 <code>users</code> Tablosu</h2>
+  <h2>6.1 <code>users</code> Tablosu</h2>
   <table>
     <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
     <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Benzersiz kullanıcı kimliği</td></tr>
@@ -523,49 +626,76 @@
     <tr><td>password</td><td>TEXT NOT NULL</td><td>bcrypt ile şifrelenmiş parola</td></tr>
   </table>
 
-  <h2>5.2 <code>khatms</code> Tablosu</h2>
+  <h2>6.2 <code>khatms</code> Tablosu (Bireysel)</h2>
   <table>
     <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
     <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Hatim kimliği</td></tr>
-    <tr><td>title</td><td>TEXT NOT NULL</td><td>Hatim başlığı</td></tr>
-    <tr><td>owner_id</td><td>INTEGER (FK → users.id)</td><td>Hatimi oluşturan kullanıcı</td></tr>
-    <tr><td>target_person</td><td>TEXT</td><td>Hatim kimin adına okunuyor (isteğe bağlı)</td></tr>
+    <tr><td>title</td><td>TEXT NOT NULL</td><td>Hatim başlığı (örneğin: "Kişisel Hatim")</td></tr>
+    <tr><td>owner_id</td><td>INTEGER (FK → users.id)</td><td>Hatimi oluşturan kullanıcı kimliği</td></tr>
+    <tr><td>target_person</td><td>TEXT</td><td>Hatim adanan kişi (opsiyonel)</td></tr>
     <tr><td>last_ayah</td><td>INTEGER DEFAULT 0</td><td>Son okunan ayetin global numarası (1-6236)</td></tr>
-    <tr><td>total_ayahs</td><td>INTEGER DEFAULT 6236</td><td>Toplam ayet sayısı</td></tr>
-    <tr><td>type</td><td>TEXT ('self' / 'other')</td><td>Hatim türü</td></tr>
+    <tr><td>total_ayahs</td><td>INTEGER DEFAULT 6236</td><td>Toplam ayet sayısı (6236)</td></tr>
+    <tr><td>type</td><td>TEXT CHECK(type IN ('self' / 'other'))</td><td>Bireysel ('self') veya Başkası Adına ('other')</td></tr>
   </table>
 
-  <h2>5.3 İlerleme Hesaplama Mantığı</h2>
-  <div class="info-box">
-    <div class="box-title">📐 Yüzde Hesaplama Formülü</div>
-    <div class="code-block" style="margin-top:8px;">Tamamlanma % = (son_okunan_ayet / 6236) × 100
+  <h2>6.3 <code>group_khatms</code> Tablosu (Ortaklaşa)</h2>
+  <table>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Grup hatim kimliği</td></tr>
+    <tr><td>title</td><td>TEXT NOT NULL</td><td>Grup hatmi başlığı (örneğin: "Ramazan Hatmi 2026")</td></tr>
+    <tr><td>creator_id</td><td>INTEGER (FK → users.id)</td><td>Grup hatmini başlatan kullanıcı kimliği</td></tr>
+    <tr><td>status</td><td>TEXT CHECK(...)</td><td>Durum: 'open' (açık), 'fully_reserved' (dolu), 'completed' (bitti)</td></tr>
+    <tr><td>created_at</td><td>DATETIME</td><td>Oluşturulma zaman damgası</td></tr>
+    <tr><td>updated_at</td><td>DATETIME</td><td>Son güncellenme zaman damgası</td></tr>
+  </table>
 
-Örnek: Al-i İmran, Ayet 100 için:
-  → Küresel ayet indeksi = 293 (Al-Fatiha:7 + Al-Bakara:286 + 100)
-  → Tamamlanma = (293 / 6236) × 100 = %4.7</div>
+  <h2>6.4 <code>group_khatm_reservations</code> Tablosu (Cüz Rezerve)</h2>
+  <table>
+    <tr><th>Sütun</th><th>Tür</th><th>Açıklama</th></tr>
+    <tr><td>id</td><td>INTEGER (PK, AUTOINCREMENT)</td><td>Rezervasyon kimliği</td></tr>
+    <tr><td>group_khatma_id</td><td>INTEGER (FK → group_khatms.id)</td><td>İlgili grup hatmi kimliği</td></tr>
+    <tr><td>juz_number</td><td>INTEGER NOT NULL</td><td>Rezerve edilen cüz numarası (1 - 30)</td></tr>
+    <tr><td>user_id</td><td>INTEGER (FK → users.id)</td><td>Rezerve eden kullanıcı kimliği</td></tr>
+    <tr><td>display_name</td><td>TEXT NOT NULL</td><td>Kullanıcı adı veya "Anonymous" (Gizli Katılımcı)</td></tr>
+    <tr><td>is_anonymous</td><td>INTEGER DEFAULT 0</td><td>Gizli katılımcı bayrağı (0: Görünür, 1: Anonim)</td></tr>
+    <tr><td>status</td><td>TEXT CHECK(...)</td><td>Durum: 'reserved' (okunuyor), 'completed' (okundu)</td></tr>
+    <tr><td>completed_at</td><td>DATETIME</td><td>Cüzün okunduğu tarih/saat</td></tr>
+    <tr><td>created_at</td><td>DATETIME</td><td>Rezervasyon tarih/saat</td></tr>
+  </table>
+  <div class="warning-box">
+    <div class="box-title">🛡️ Veritabanı Benzersizlik Kısıtı (UNIQUE Constraint)</div>
+    <p>
+      Aynı grup hatminde aynı cüzün birden fazla kişi tarafından rezerve edilmesini (çakışmaları) önlemek amacıyla 
+      <code>UNIQUE (group_khatma_id, juz_number)</code> kısıtı tanımlanmıştır. Bu kısıt, eşzamanlı isteklerde veritabanı seviyesinde veri bütünlüğünü garanti altına alır.
+    </p>
   </div>
 
+  <h2>6.5 Bireysel Hatim İlerleme Hesaplama Mantığı</h2>
   <p>
     Kur'an-ı Kerim'in 114 suresinin tüm ayet sayıları <code>surahData.js</code> dosyasında tutulmakta; <code>getAyahIndex()</code> fonksiyonu ile sure/ayet ikilisi küresel ayet numarasına, <code>getSurahFromIndex()</code> ile de küresel numara sure/ayet ikilisine dönüştürülmektedir.
   </p>
 </div>
 
-<!-- ==================== BÖLÜM 6: BACKEND ==================== -->
+<!-- ==================== BÖLÜM 7: BACKEND ==================== -->
 <div class="page page-break">
-  <h1>6. Backend Geliştirme (Node.js & Express.js)</h1>
+  <h1>7. Backend Geliştirme (Node.js & Express.js)</h1>
 
-  <h2>6.1 API Endpoint'leri</h2>
+  <h2>7.1 API Endpoint'leri</h2>
   <table>
     <tr><th>Method</th><th>Endpoint</th><th>Açıklama</th><th>Auth</th></tr>
     <tr><td>POST</td><td>/api/auth/register</td><td>Yeni kullanıcı kaydı</td><td>Hayır</td></tr>
     <tr><td>POST</td><td>/api/auth/login</td><td>Kullanıcı girişi → JWT token</td><td>Hayır</td></tr>
-    <tr><td>GET</td><td>/api/khatms</td><td>Kullanıcının tüm hatimleri</td><td>✓ JWT</td></tr>
-    <tr><td>POST</td><td>/api/khatms</td><td>Yeni hatim oluşturma</td><td>✓ JWT</td></tr>
-    <tr><td>PUT</td><td>/api/khatms/:id</td><td>Hatim ilerlemesini güncelleme</td><td>✓ JWT</td></tr>
+    <tr><td>GET</td><td>/api/khatms</td><td>Kullanıcının tüm bireysel hatimleri</td><td>✓ JWT</td></tr>
+    <tr><td>POST</td><td>/api/khatms</td><td>Yeni bireysel hatim oluşturma</td><td>✓ JWT</td></tr>
+    <tr><td>PUT</td><td>/api/khatms/:id</td><td>Bireysel hatim ilerlemesini güncelleme</td><td>✓ JWT</td></tr>
+    <tr><td>POST</td><td>/api/group-khatms</td><td>Yeni grup hatmi oluşturma</td><td>✓ JWT</td></tr>
+    <tr><td>GET</td><td>/api/group-khatms</td><td>Tüm grup hatimlerini listeleme (ilerleme dahil)</td><td>✓ JWT</td></tr>
+    <tr><td>GET</td><td>/api/group-khatms/:id</td><td>Grup hatmi detayları (30 cüzün durumları)</td><td>✓ JWT</td></tr>
+    <tr><td>POST</td><td>/api/group-khatms/:id/reserve</td><td>Seçili cüzleri rezerve etme (kilitleme)</td><td>✓ JWT</td></tr>
+    <tr><td>PUT</td><td>/api/group-khatms/:id/complete</td><td>Rezerve edilmiş cüzü okundu olarak işaretleme</td><td>✓ JWT</td></tr>
   </table>
 
-  <h2>6.2 Kimlik Doğrulama Middleware</h2>
-  <p>Her yetkili endpoint'e gelen istek, JWT token kontrolünden geçmektedir. Token geçersizse <code>403 Forbidden</code> hatası döndürülmektedir.</p>
+  <h2>7.2 Kimlik Doğrulama Middleware (authenticate)</h2>
   <div class="code-block">const authenticate = (req, res, next) => {
   const token = req.headers['authorization'];
   if (!token) return res.status(401).json({ error: 'Unauthorized' });
@@ -577,87 +707,128 @@
   });
 };</div>
 
-  <h2>6.3 Güvenlik Önlemleri</h2>
-  <ul>
-    <li><strong>Şifre Güvenliği:</strong> Şifreler veritabanına <code>bcrypt</code> (salt round: 10) ile hashlenerek kaydedilmektedir. Düz metin şifre hiçbir zaman depolanmamaktadır.</li>
-    <li><strong>JWT Token:</strong> Her oturum açma işleminde benzersiz bir token oluşturulmakta; token 24 saat sonra otomatik olarak geçersiz olmaktadır.</li>
-    <li><strong>CORS:</strong> Yalnızca frontend kaynağından gelen istekler kabul edilmektedir.</li>
-    <li><strong>Veri Doğrulama:</strong> Tüm endpoint'lerde gelen veriler kontrol edilmektedir.</li>
-  </ul>
+  <h2>7.3 Grup Hatmi İş Mantığı ve Rezervasyon Kontrolü</h2>
+  <p>Cüz rezervasyon aşamasında, seçilen cüzlerin daha önce rezerve edilip edilmediği kontrol edilir ve başarılı bir rezervasyon sonrasında 30 cüzün tamamı dolmuşsa grup hatmi durumu otomatik olarak güncellenir:</p>
+  <div class="code-block">// Cüz Rezervasyon API (POST /api/group-khatms/:id/reserve)
+app.post('/api/group-khatms/:id/reserve', authenticate, (req, res) => {
+  const khatmaId = req.params.id;
+  const { juzNumbers, isAnonymous } = req.body;
 
-  <h2>6.4 Sunucu Başlatma Komutları</h2>
-  <div class="code-block">cd backend
-npm run dev          # nodemon ile otomatik yeniden başlatma
-# Sunucu: http://localhost:5000</div>
+  // Çakışma kontrolü
+  const placeholders = juzNumbers.map(() => '?').join(',');
+  const checkSql = `SELECT juz_number FROM group_khatm_reservations 
+                    WHERE group_khatma_id = ? AND juz_number IN (${placeholders})`;
+  
+  db.all(checkSql, [khatmaId, ...juzNumbers], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (rows.length > 0) {
+      const alreadyReserved = rows.map(r => r.juz_number).join(', ');
+      return res.status(400).json({ error: `Cüz ${alreadyReserved} zaten rezerve edilmiş.` });
+    }
+
+    db.get(`SELECT name FROM users WHERE id = ?`, [req.userId], (err, user) => {
+      const displayName = isAnonymous ? 'Anonymous' : user.name;
+      db.serialize(() => {
+        const insertSql = `INSERT INTO group_khatm_reservations 
+                           (group_khatma_id, juz_number, user_id, display_name, is_anonymous) 
+                           VALUES (?, ?, ?, ?, ?)`;
+        const stmt = db.prepare(insertSql);
+        juzNumbers.forEach(juz => {
+          stmt.run([khatmaId, juz, req.userId, displayName, isAnonymous ? 1 : 0]);
+        });
+        stmt.finalize(() => {
+          // 30 cüz doldu mu kontrolü
+          db.get(`SELECT COUNT(*) as count FROM group_khatm_reservations 
+                  WHERE group_khatma_id = ?`, [khatmaId], (err, row) => {
+            if (row && row.count === 30) {
+              db.run(`UPDATE group_khatms SET status = 'fully_reserved', updated_at = CURRENT_TIMESTAMP 
+                      WHERE id = ?`, [khatmaId], () => {
+                res.json({ message: 'Rezervasyon başarılı!' });
+              });
+            } else {
+              res.json({ message: 'Rezervasyon başarılı!' });
+            }
+          });
+        });
+      });
+    });
+  });
+});</div>
 </div>
 
-<!-- ==================== BÖLÜM 7: FRONTEND ==================== -->
+<!-- ==================== BÖLÜM 8: FRONTEND ==================== -->
 <div class="page page-break">
-  <h1>7. Frontend Geliştirme (React.js)</h1>
+  <h1>8. Frontend Geliştirme (React.js)</h1>
 
-  <h2>7.1 Bileşen (Component) Yapısı</h2>
+  <h2>8.1 Bileşen (Component) Yapısı</h2>
   <table>
     <tr><th>Bileşen</th><th>Dosya</th><th>Görev</th></tr>
-    <tr><td>AuthProvider</td><td>App.jsx</td><td>Kullanıcı oturumu için global state yönetimi (Context API)</td></tr>
-    <tr><td>Navbar</td><td>App.jsx</td><td>Üst menü: kullanıcı adı, çıkış, dil değiştirme</td></tr>
-    <tr><td>Login</td><td>App.jsx</td><td>Giriş formu</td></tr>
-    <tr><td>Register</td><td>App.jsx</td><td>Kayıt formu</td></tr>
-    <tr><td>Dashboard</td><td>App.jsx</td><td>Ana sayfa: hatim listesi + yeni hatim formu</td></tr>
-    <tr><td>KhatmCard</td><td>App.jsx</td><td>Hatim kartı: ilerleme çubuğu + güncelleme + okuma butonu</td></tr>
-    <tr><td>QuranReader</td><td>QuranReader.jsx</td><td>Kur'an okuma sayfası: sure seçimi + ayet görüntüleme</td></tr>
+    <tr><td>Dashboard</td><td>App.jsx</td><td>Bireysel hatimlerin listesi ve hatim oluşturma arayüzü</td></tr>
+    <tr><td>GroupDashboard</td><td>App.jsx</td><td>Ortak hatimlerin listesi, durumu ve yeni grup hatmi oluşturma formu</td></tr>
+    <tr><td>GroupKhatmaDetails</td><td>App.jsx</td><td>30 cüzün interaktif durum paneli, katılımcı istatistikleri ve cüz rezervasyon alanı</td></tr>
+    <tr><td>JuzReader</td><td>JuzReader.jsx</td><td>Seçili cüzün (1-30) ayetlerini harici API'den çeken ve okumayı kolaylaştıran özel arayüz</td></tr>
+    <tr><td>QuranReader</td><td>QuranReader.jsx</td><td>Bireysel hatim için sure-ayet bazlı Kur'an okuyucu ekranı</td></tr>
+    <tr><td>Navbar</td><td>App.jsx</td><td>Kullanıcı bilgisi, Çıkış Yap butonu ve TR/AR dil değiştirme menüsü</td></tr>
   </table>
 
-  <h2>7.2 Sayfa Yönlendirme (Routing)</h2>
+  <h2>8.2 Sayfa Yönlendirme (Routing)</h2>
   <table>
     <tr><th>Rota (Route)</th><th>Bileşen</th><th>Açıklama</th></tr>
-    <tr><td>/login</td><td>Login</td><td>Giriş sayfası (yalnızca giriş yapmamış kullanıcılar)</td></tr>
-    <tr><td>/register</td><td>Register</td><td>Kayıt sayfası</td></tr>
-    <tr><td>/</td><td>Dashboard</td><td>Ana panel (yalnızca giriş yapmış kullanıcılar)</td></tr>
-    <tr><td>/read/:khatmId</td><td>QuranReader</td><td>Kur'an okuyucu (hatim kimliğine göre)</td></tr>
+    <tr><td>/</td><td>Dashboard</td><td>Bireysel hatim yönetim paneli (Giriş zorunlu)</td></tr>
+    <tr><td>/group-khatms</td><td>GroupDashboard</td><td>Grup hatimleri listesi paneli (Giriş zorunlu)</td></tr>
+    <tr><td>/group-khatms/:id</td><td>GroupKhatmaDetails</td><td>Grup hatmi detay ve cüz yönetim ekranı</td></tr>
+    <tr><td>/read/:khatmId</td><td>QuranReader</td><td>Bireysel hatim okuma ve ayet işaretleme ekranı</td></tr>
+    <tr><td>/read-juz/:juzNum</td><td>JuzReader</td><td>Grup hatminden rezerve edilen cüzü okuma ekranı</td></tr>
+    <tr><td>/login</td><td>Login</td><td>Kullanıcı giriş sayfası</td></tr>
+    <tr><td>/register</td><td>Register</td><td>Yeni kayıt sayfası</td></tr>
   </table>
 
-  <h2>7.3 Çok Dilli Destek (i18n)</h2>
+  <h2>8.3 Çok Dilli Destek (i18n)</h2>
   <p>
-    <strong>i18next</strong> kütüphanesi kullanılarak uygulama iki dili tam olarak desteklemektedir. Kullanıcı üst menüdeki dil butonuna tıklayarak Türkçe ↔ Arapça geçişi yapabilmektedir. Arapça'ya geçildiğinde sayfa düzeni otomatik olarak sağdan sola (RTL) dönmektedir.
+    <code>react-i18next</code> entegrasyonu sayesinde arayüz anında Türkçe ve Arapça dilleri arasında geçiş yapabilir. Arapça dil seçildiğinde sayfa yönü CSS üzerinden otomatik olarak sağdan sola (RTL) çevrilir ve <strong>Amiri</strong> fontu aktif edilerek Arapça Kur'an harflerinin en estetik şekilde görüntülenmesi sağlanır.
   </p>
 
-  <h2>7.4 Kur'an Okuyucu (QuranReader) Özellikleri</h2>
-  <ul>
-    <li>Alquran Cloud API'sinden Osmanlı hatlı sure metinleri anlık olarak çekilmektedir.</li>
-    <li>Sure seçimi için açılır menü ve ← → gezinme butonları mevcuttur.</li>
-    <li>Daha önce okunan ayetler <strong style="color:green;">yeşil</strong> renkte gösterilmektedir.</li>
-    <li>Herhangi bir ayete tıklandığında onay penceresi (dialog) açılmaktadır: "Bu ayeti durak noktası olarak kaydetmek ister misiniz?"</li>
-    <li>Onay verildiğinde ilerleme otomatik olarak backend'e gönderilip kaydedilmektedir.</li>
-  </ul>
+  <h2>8.4 Bireysel Kur'an Okuyucu (QuranReader)</h2>
+  <p>
+    Kullanıcının nerede kaldığını takip etmesi için sure ve ayet verileri dinamik olarak yüklenir. Kullanıcı bir ayete tıkladığında onay penceresi tetiklenir ve sunucuya ilerleme kaydedilir. Okunmuş ayetler yeşil renkte vurgulanır.
+  </p>
 
-  <h2>7.5 İlerleme Çubuğu Renk Sistemi</h2>
-  <table>
-    <tr><th>İlerleme Aralığı</th><th>Renk</th><th>Anlam</th></tr>
-    <tr><td>0% - 50%</td><td>🔵 Mavi</td><td>Başlangıç aşaması</td></tr>
-    <tr><td>50% - 85%</td><td>🟢 Yeşil</td><td>Yarıdan fazlası tamamlandı</td></tr>
-    <tr><td>85% - 100%</td><td>🟡 Sarı</td><td>Tamamlanmak üzere</td></tr>
-  </table>
+  <h2>8.5 Grup Hatmi ve Cüz Okuyucu (JuzReader)</h2>
+  <p>
+    Grup hatminde bir cüz rezerve eden kullanıcı, cüz detay kartında yer alan "Oku" butonuna basarak doğrudan <code>JuzReader</code> bileşenine yönlendirilir. Bu bileşen, Alquran Cloud API üzerinden hedeflenen cüz numarasının tüm ayetlerini tek bir istekte lazy load ederek getirir. Başlangıçta Bismillah ve sure başlıklarını görsel olarak gruplar. Okuma tamamlandığında cüz "Tamamlandı" olarak işaretlenebilir.
+  </p>
 
-  <h2>7.6 Frontend Başlatma Komutu</h2>
-  <div class="code-block">cd frontend
-npm run dev          # Vite geliştirme sunucusu
-# Adres: http://localhost:5173</div>
+  <h2>8.6 Axios Oturum İstek Interceptor'ı</h2>
+  <p>Geliştirme aşamasında JWT token süresi dolduğunda (24 saat sonra) API isteklerinin 401/403 hatası vermesi durumunda kullanıcının tarayıcıda takılı kalmasını önlemek için Axios interceptor mekanizması kurulmuştur:</p>
+  <div class="code-block">useEffect(() => {
+  const interceptor = axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      // Token geçersiz veya süresi dolmuşsa otomatik güvenli çıkış yap
+      if (error.response && (error.response.status === 401 || error.response.status === 403)) {
+        logout();
+      }
+      return Promise.reject(error);
+    }
+  );
+  return () => {
+    axios.interceptors.response.eject(interceptor);
+  };
+}, []);</div>
 </div>
 
-<!-- ==================== BÖLÜM 8: SORUNLAR VE ÇÖZÜMLER ==================== -->
+<!-- ==================== BÖLÜM 9: SORUNLAR VE ÇÖZÜMLER ==================== -->
 <div class="page page-break">
-  <h1>8. Karşılaşılan Sorunlar ve Çözümleri</h1>
+  <h1>9. Karşılaşılan Sorunlar ve Çözümleri</h1>
 
   <h2>Sorun 1: Frontend-Backend CORS Hatası</h2>
   <div class="warning-box">
     <div class="box-title">⚠️ Sorun</div>
-    <p>React uygulaması (localhost:5173) Node.js sunucusuna (localhost:5000) istek gönderdiğinde tarayıcı CORS politikası hatası veriyordu. Tüm API çağrıları engelleniyor, konsolda <code>Access-Control-Allow-Origin</code> hatası görünüyordu.</p>
+    <p>React uygulaması (localhost:5173) Node.js sunucusuna (localhost:5000) istek gönderdiğinde tarayıcı CORS politikası hatası veriyordu. Tüm API çağrıları engelleniyordu.</p>
   </div>
   <div class="success-box">
     <div class="box-title">✅ Çözüm</div>
     <p>Backend'e <code>cors</code> npm paketi eklendi ve tüm kaynaklardan gelen isteklere izin verildi. Bu sayede frontend ve backend farklı portlarda çalışmasına rağmen başarıyla iletişim kurabilmektedir.</p>
-    <div class="code-block" style="margin-top:8px;">const cors = require('cors');
-app.use(cors()); // Tüm origin'lere izin ver</div>
   </div>
 
   <hr class="section-hr">
@@ -682,10 +853,6 @@ app.use(cors()); // Tüm origin'lere izin ver</div>
   <div class="success-box">
     <div class="box-title">✅ Çözüm</div>
     <p>Tüm import ifadeleri dosyanın en üstüne taşındı. React kurallarına göre import'lar her zaman dosyanın başında bulunmalıdır.</p>
-    <div class="code-block" style="margin-top:8px;">// ✓ Doğru - Dosyanın en üstünde
-import { BrowserRouter, Routes, Route, Navigate,
-         Link, useNavigate } from 'react-router-dom';
-</div>
   </div>
 
   <hr class="section-hr">
@@ -702,127 +869,148 @@ import { BrowserRouter, Routes, Route, Navigate,
 
   <hr class="section-hr">
 
-  <h2>Sorun 5: Kur'an API Entegrasyonu</h2>
+  <h2>Sorun 5: Kur'an API Entegrasyonu ve Performans</h2>
   <div class="warning-box">
     <div class="box-title">⚠️ Sorun</div>
     <p>Tüm 6236 ayetin frontend uygulamasına dahil edilmesi durumunda JavaScript bundle boyutu 5MB'ı aşacaktı. Bu durum sayfa yükleme süresini olumsuz etkileyecekti.</p>
   </div>
   <div class="success-box">
     <div class="box-title">✅ Çözüm</div>
-    <p>Harici ve ücretsiz bir API olan <strong>Alquran Cloud (api.alquran.cloud)</strong> entegre edildi. Uygulama yalnızca kullanıcı bir sure seçtiğinde o surenin verilerini API'den çekmektedir (lazy loading). Bu yaklaşım sayesinde ilk yükleme süresi minimum düzeyde tutulmaktadır.</p>
-    <div class="code-block" style="margin-top:8px;">// Sadece seçilen sure yüklendiğinde API çağrısı yapılır
-const res = await fetch(
-  `https://api.alquran.cloud/v1/surah/${surahId}/quran-uthmani`
-);</div>
+    <p>Harici ve ücretsiz bir API olan <strong>Alquran Cloud (api.alquran.cloud)</strong> entegre edildi. Uygulama yalnızca kullanıcı bir sure veya cüz seçtiğinde o verileri API'den çekmektedir (lazy loading). Bu yaklaşım sayesinde ilk yükleme süresi minimum düzeyde tutulmaktadır.</p>
+  </div>
+
+  <hr class="section-hr">
+
+  <h2>Sorun 6: Grup Hatimlerinde Eşzamanlı Cüz Rezervasyon Çakışmaları</h2>
+  <div class="warning-box">
+    <div class="box-title">⚠️ Sorun</div>
+    <p>İki farklı kullanıcı, aynı anda aynı cüzü (örneğin 15. Cüz) rezerve etmeye çalıştığında yarış durumu (race condition) oluşuyor ve cüz her iki kullanıcı adına da rezerve edilmiş görünüyordu.</p>
+  </div>
+  <div class="success-box">
+    <div class="box-title">✅ Çözüm</div>
+    <p>SQLite veritabanı şemasında <code>group_khatm_reservations</code> tablosuna <code>UNIQUE (group_khatma_id, juz_number)</code> kısıtı eklendi. Ek olarak backend API tarafında rezervasyon yapılmadan önce cüzün boşta olduğu sorgulanmakta ve hata durumunda istek iptal edilerek kullanıcıya bildirim verilmektedir.</p>
   </div>
 </div>
 
-<!-- ==================== BÖLÜM 9: EKRANLAR ==================== -->
+<!-- ==================== BÖLÜM 10: EKRANLAR ==================== -->
 <div class="page page-break">
-  <h1>9. Uygulama Ekranları ve Kullanıcı Akışı</h1>
+  <h1>10. Uygulama Ekran Görüntüleri Açıklaması</h1>
 
-  <h2>9.1 Kullanıcı Akışı</h2>
+  <h2>10.1 Kullanıcı Akış Şeması</h2>
   <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.3rem; padding-left:1rem;">
     <div style="display:flex; align-items:center; gap:0.5rem;">
       <div class="flow-item">📋 Kayıt Ol</div>
       <div class="flow-arrow">→</div>
       <div class="flow-item">🔐 Giriş Yap</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">🏠 Ana Panel</div>
+      <div class="flow-item">🏠 Ana Panel (Bireysel / Grup)</div>
     </div>
     <div style="margin-left:14rem; display:flex; align-items:center; gap:0.5rem;">
       <div class="flow-arrow">↓</div>
     </div>
-    <div style="margin-left:10rem; display:flex; align-items:center; gap:0.5rem;">
-      <div class="flow-item">➕ Hatim Oluştur</div>
+    <div style="margin-left:5rem; display:flex; align-items:center; gap:0.5rem;">
+      <div class="flow-item">👥 Grup Hatmi Seç</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">📖 Kur'an Oku</div>
+      <div class="flow-item">🔑 Cüz Kilitle/Rezerve Et</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-item">✅ İlerleme Kaydet</div>
+      <div class="flow-item">📖 JuzReader Oku</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">✅ Cüzü Bitir</div>
     </div>
   </div>
 
-  <h2>9.2 Ekranların Açıklaması</h2>
+  <h2>10.2 Ekran Görüntüleri ve Detaylı Analiz</h2>
 
-  <h3>Kayıt/Giriş Ekranı</h3>
-  <p>Koyu (dark) arka planlı, modern bir tasarıma sahiptir. Kullanıcı adı, e-posta ve şifre alanlarından oluşmaktadır. Kayıt sayfası ile giriş sayfası arasında bağlantı mevcuttur.</p>
+  <h3>10.2.1 Karşılama ve Oturum Açma Arayüzü</h3>
+  <p>
+    Uygulama açıldığında kullanıcıyı modern, koyu temalı (dark mode) ve cam morfolojisi (glassmorphism) efektlerine sahip şık bir giriş paneli karşılar. Aşağıdaki görsel, uygulamanın estetik tasarım dili ve arka plan görsel yerleşimini yansıtmaktadır:
+  </p>
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <img src="frontend/src/assets/hero.png" alt="Giriş Ekranı Görseli" style="max-width: 85%; border: 1px solid #3b82f640; border-radius: 8px; box-shadow: 0 4px 15px rgba(59,130,246,0.25);" />
+    <p style="font-size: 10pt; color: #555; margin-top: 0.5rem;">Şekil 2: Karşılama ve Giriş Arayüzü Görsel Tasarımı</p>
+  </div>
 
-  <h3>Ana Panel (Dashboard)</h3>
-  <p>İki ana bölümden oluşmaktadır:</p>
+  <h3>10.2.2 Ana Panel (Dashboard) ve Hatim Yönetimi</h3>
+  <p>
+    Kullanıcı sisteme giriş yaptığında bireysel hatimlerini yönetebildiği ve yeni hatimler oluşturabildiği ana kontrol paneline erişir. Aynı zamanda üst menüdeki sekmeler yardımıyla grup hatimlerine geçiş yapabilir. Rapor teslimi öncesinde başarıyla alınan aşağıdaki ekran görüntüsünde, aktif hatim kartları, son okunan sure/ayet bilgileri ve dinamik ilerleme çubukları görülmektedir:
+  </p>
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <img src="frontend/src/assets/dashboard.png" alt="Ana Panel Ekran Görüntüsü" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+    <p style="font-size: 10pt; color: #555; margin-top: 0.5rem;">Şekil 3: Kur'an Hatim Takip Sistemi - Ana Panel Arayüzü</p>
+  </div>
+  <p>
+    <strong>Görsel Analiz ve Bileşen Açıklamaları:</strong>
+  </p>
   <ul>
-    <li><strong>Dahil Olduğunuz Hatimler:</strong> Kullanıcının kendi adına oluşturduğu hatimler</li>
-    <li><strong>Diğer Hatimler:</strong> Başkası adına oluşturulan hatimler</li>
+    <li><strong>Navigasyon Çubuğu (Navbar):</strong> Sağ üst köşede dil değiştirme butonu (Türkçe / Arapça) ve çıkış düğmesi yer alır. Dil Arapça yapıldığında tüm arayüz sağdan sola (RTL) hizalanır.</li>
+    <li><strong>Bireysel Hatim Kartları:</strong> "Dahil Olduğunuz Hatimler" kısmında her hatim için ilerleme yüzdesi hesaplanır ve renklendirilir (örneğin %1.6 ve %7.9 tamamlanmış hatimler). Kart üzerinde son okunan ayet bilgisi ("Al-Baqara 100") ve doğrudan o noktadan okumaya devam etmek için "Kur'an'ı Oku" butonu yer alır.</li>
+    <li><strong>Hızlı Güncelleme Paneli:</strong> Kullanıcı okuma sayfasını açmadan da kart üzerindeki açılır kutulardan sure ve ayet seçerek ilerlemesini hızlıca güncelleyebilir.</li>
+    <li><strong>Grup Hatimleri Sekmesi:</strong> Üstteki "👥 Ortak Hatimler" linki tıklandığında, Ramazan Hatmi gibi ortak etkinliklerin olduğu, 30 cüzün kilitlenip paylaşıldığı grup paneline geçiş yapılır.</li>
   </ul>
-  <p>Her hatim kartında şu bilgiler bulunmaktadır: Hatim adı, ilerleme yüzdesi, renkli ilerleme çubuğu, son durulan sure ve ayet, sure/ayet güncelleme dropdownları ve Kur'an okuma butonu.</p>
 
-  <h3>Kur'an Okuyucu Sayfası</h3>
-  <p>Üst kısımda hatim adı ve tamamlanma yüzdesi gösterilmektedir. Sure seçim menüsü ve gezinme butonları yer almaktadır. Ayetler Osmanlı hattıyla, sağdan sola (RTL) düzeninde büyük ve okunabilir bir şekilde sunulmaktadır. Kullanıcı herhangi bir ayete tıkladığında onay penceresi açılmaktadır.</p>
+  <h3>10.2.3 Ortaklaşa Hatim Takip Paneli (Group Khatma Dashboard)</h3>
+  <p>
+    Kullanıcının üst menüden "Ortak Hatimler" sekmesine tıklayarak eriştiği bu panel, işbirlikçi Kur'an hatimlerinin yönetildiği alandır. Aşağıdaki ekran görüntüsünde, yeni bir grup hatmi oluşturma formu ve mevcut hatimlerin durum kartları yer almaktadır:
+  </p>
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <img src="frontend/src/assets/group_khatma_dashboard.png" alt="Ortak Hatim Paneli Görseli" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" />
+    <p style="font-size: 10pt; color: #555; margin-top: 0.5rem;">Şekil 4: Ortaklaşa Hatim Paneli Arayüz Tasarımı</p>
+  </div>
+  <p>
+    <strong>Arayüz Detayları:</strong>
+    Kullanıcılar "Hatim Başlığı" girerek saniyeler içinde yeni bir grup hatmi başlatabilirler. Liste kartları; hatmin durumunu (Açık, Dolu, Tamamlandı), toplam ilerleme yüzdesini, rezerve edilmiş ve boşta kalan cüz adetlerini şeffaf bir şekilde yansıtır. Her kartta bulunan "Hatim Detayları" butonu ile ilgili hatmin cüz yönetim ekranına geçilir.
+  </p>
 
-  <h2>9.3 Tasarım Sistemi</h2>
-  <table>
-    <tr><th>Element</th><th>Değer</th></tr>
-    <tr><td>Arka Plan Rengi</td><td>#0f172a (Koyu Lacivert)</td></tr>
-    <tr><td>Kart Rengi</td><td>#1e293b</td></tr>
-    <tr><td>Ana Renk</td><td>#3b82f6 (Mavi)</td></tr>
-    <tr><td>Başarı Rengi</td><td>#22c55e (Yeşil)</td></tr>
-    <tr><td>Vurgu Rengi</td><td>#eab308 (Sarı/Altın)</td></tr>
-    <tr><td>UI Yazı Tipi</td><td>Outfit (Google Fonts)</td></tr>
-    <tr><td>Kur'an Yazı Tipi</td><td>Amiri (Google Fonts) - Arap hattı</td></tr>
-    <tr><td>Tasarım Stili</td><td>Dark Mode + Glassmorphism</td></tr>
-  </table>
+  <h3>10.2.4 Ortak Hatim Cüz Rezervasyon ve Yönetim Ekranı</h3>
+  <p>
+    Bu ekran, grup hatminin en dinamik ve işbirlikçi kısmıdır. 30 cüzün tamamı interaktif bir ızgara (grid) şeklinde listelenir. Aşağıdaki ekran görüntüsünde, cüzlerin rezervasyon durumu, katılımcılar paneli ve cüz seçim arayüzü gösterilmektedir:
+  </p>
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <img src="frontend/src/assets/group_juz_detail.png" alt="Cüz Yönetim Ekranı Görseli" style="max-width: 100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);" />
+    <p style="font-size: 10pt; color: #555; margin-top: 0.5rem;">Şekil 5: Grup Hatmi Cüz Dağılımı ve Yönetim Paneli</p>
+  </div>
+  <p>
+    <strong>Özellik ve Fonksiyon Analizi:</strong>
+  </p>
+  <ul>
+    <li><strong>30 Cüz Izgarası (Interactive Juz Grid):</strong> Her cüz kutusu kendi durumuna göre renk alır. Boş cüzler seçilebilir; rezerve edilmiş cüzler ise rezerve eden kişinin display_name bilgisiyle kilitlenir.</li>
+    <li><strong>Gizli Katılımcı (Anonymous Mode):</strong> Kullanıcı cüz seçerken "Gizli Katıl" kutusunu işaretlerse, cüz kartında adı yerine "Anonymous" yazar. Böylece hayır işlerinde gizlilik esası korunmuş olur.</li>
+    <li><strong>"Oku" (Read) ve "Tamamla" Butonları:</strong> Bir kullanıcı cüz rezerve ettiğinde, o cüz kartı üzerinde yeşil renkli "Oku" butonu belirir. Bu buton kullanıcıyı doğrudan <code>JuzReader</code> sayfasına yönlendirir. Okuma bittiğinde ise "Tamamlandı" olarak işaretlenebilir.</li>
+    <li><strong>Katılımcı İlerlemeleri (Participants Sidebar):</strong> Sağ tarafta yer alan panelde, hatme katılan her kişinin cüz rezerve etme ve okuma oranları dinamik olarak hesaplanarak yüzde cinsinden listelenir.</li>
+  </ul>
 </div>
 
-<!-- ==================== BÖLÜM 10: SONUÇ ==================== -->
+<!-- ==================== BÖLÜM 11: SONUÇ ==================== -->
 <div class="page page-break">
-  <h1>10. Sonuç ve Değerlendirme</h1>
+  <h1>11. Sonuç ve Değerlendirme</h1>
 
-  <h2>10.1 Tamamlanan Özellikler</h2>
+  <h2>11.1 Proje Çıktıları ve Başarı Kriterleri</h2>
   <div class="success-box">
     <ul>
-      <li>✅ Full-Stack uygulama başarıyla geliştirildi (React + Node.js)</li>
-      <li>✅ REST API tasarım ve geliştirme</li>
-      <li>✅ JWT tabanlı güvenli kimlik doğrulama</li>
-      <li>✅ SQLite veritabanı şeması ve sorguları</li>
-      <li>✅ Kur'an okuyucu sayfası (harici API entegrasyonu)</li>
-      <li>✅ 6236 ayet üzerinden ilerleme hesaplama</li>
-      <li>✅ Türkçe/Arapça çok dilli destek ve RTL/LTR düzeni</li>
-      <li>✅ Modern karanlık tema tasarım sistemi</li>
+      <li>✅ <strong>Full-Stack Mimari:</strong> React.js frontend ve Express.js backend sunucuları sorunsuz entegre edilmiştir.</li>
+      <li>✅ <strong>Grup Hatmi Özelliği:</strong> 30 cüzün birden fazla kullanıcı arasında paylaşılarak okunması, anonim katılım desteğiyle başarıyla uygulanmıştır.</li>
+      <li>✅ <strong>Güvenli Oturum:</strong> bcrypt şifreleme ve JWT tabanlı yetkilendirme altyapısı kurulmuştur.</li>
+      <li>✅ <strong>Veri Tabanı Kararlılığı:</strong> SQLite UNIQUE kısıtları ile rezervasyon çakışmaları engellenmiştir.</li>
+      <li>✅ <strong>Kullanıcı Deneyimi:</strong> Türkçe/Arapça dil desteği, RTL düzeni ve Amiri Arapça yazı tipi ile üst düzey bir okuma deneyimi sunulmuştur.</li>
     </ul>
   </div>
 
-  <h2>10.2 Edinilen Teknik Tecrübeler</h2>
-  <ul>
-    <li>React.js ile bileşen bazlı UI geliştirme ve Context API ile global state yönetimi</li>
-    <li>Node.js/Express ile RESTful API tasarımı ve geliştirme</li>
-    <li>SQLite ile ilişkisel veritabanı şeması oluşturma</li>
-    <li>bcrypt ile güvenli şifre hashleme, JWT ile kimlik doğrulama</li>
-    <li>i18next ile çok dilli uygulama geliştirme</li>
-    <li>Harici REST API (Alquran Cloud) entegrasyonu</li>
-    <li>React Router v7 ile SPA (Single Page Application) yönlendirme</li>
-  </ul>
-
-  <h2>10.3 Gelecekte Eklenebilecek Özellikler</h2>
-  <ul>
-    <li>Sesli Kur'an okuma (MP3 entegrasyonu)</li>
-    <li>Kullanıcılar arası hatim paylaşımı (e-posta ile davet)</li>
-    <li>Hatim tamamlanma bildirimleri (push notification)</li>
-    <li>İstatistik sayfası (haftalık/aylık okuma grafiği)</li>
-    <li>Mobil uygulama (React Native)</li>
-    <li>Meal (Türkçe/Arapça anlam) görüntüleme</li>
-  </ul>
-
-  <h2>10.4 Değerlendirme</h2>
+  <h2>11.2 Akademik ve Teknik Kazanımlar</h2>
   <p>
-    Bu proje, modern web geliştirmenin temel kavramlarını kapsamlı bir şekilde uygulayan tam işlevli bir full-stack web uygulamasıdır. Frontend ve backend'in birbirinden bağımsız geliştirilmesi, REST API aracılığıyla iletişim kurması ve güvenli kimlik doğrulama mekanizmalarının kullanılması, projeyi gerçek dünya uygulamalarında kullanılabilecek standart bir mimari yapıya sahip kılmaktadır.
+    Bu çalışma kapsamında, istemci ve sunucu katmanlarının bağımsız geliştirilerek REST API standartları üzerinden konuşturulması deneyimlenmiştir. SQLite gibi hafif ilişkisel veritabanlarında çoklu yazma işlemlerinde veri tutarlılığını sağlama, JWT token yönetimi ve süresi dolan oturumları Axios interceptors ile yakalayarak güvenli çıkış yaptırma gibi kritik yazılım kalıpları projede aktif olarak kullanılmıştır.
   </p>
-  <p>
-    Kur'an-ı Kerim hatim takibi gibi manevi bir ihtiyacı teknoloji ile birleştiren bu uygulama, kullanıcıların okuma alışkanlıklarını dijital ortamda takip etmelerine önemli katkı sağlayacaktır.
-  </p>
+
+  <h2>11.3 Gelecek Geliştirme Önerileri</h2>
+  <ul>
+    <li>Kullanıcıların günlük okuma hedeflerine ulaştığında e-posta veya push bildirim alması.</li>
+    <li>Ayetlerin Türkçe meallerinin ve tefsirlerinin Kur'an okuyucu ekranına eklenmesi.</li>
+    <li>Sesli okuma modülü ile tanınmış hafızların cüz tilavetlerinin sisteme entegre edilmesi.</li>
+  </ul>
 </div>
 
-<!-- ==================== BÖLÜM 11: KAYNAKÇA ==================== -->
+<!-- ==================== BÖLÜM 12: KAYNAKÇA ==================== -->
 <div class="page">
-  <h1>11. Kaynakça</h1>
+  <h1>12. Kaynakça</h1>
   <ol>
     <li style="margin-bottom:0.6rem;">
       React Resmi Dokümantasyonu. (2024). <em>React – A JavaScript library for building user interfaces.</em> Meta Open Source. https://react.dev
@@ -859,8 +1047,8 @@ const res = await fetch(
   <br><br>
   <hr class="section-hr">
   <p style="text-align:center; color:#555; font-size:10pt; margin-top:2rem;">
-    Bu rapor, Kur'an Hatim Takip Web Uygulaması projesinin teknik belgelemesi amacıyla hazırlanmıştır.<br>
-    Nisan 2026 — Tüm hakları saklıdır.
+    Bu rapor, Kur'an Hatim Takip Web Uygulaması projesinin final teknik belgelemesi amacıyla hazırlanmıştır.<br>
+    Haziran 2026 — Tüm hakları saklıdır.
   </p>
 </div>
 
