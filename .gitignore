@@ -28,3 +28,9 @@ frontend/.env
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Project Reports
+*Raporu.docx
+*raporu.html
+make_docx.py
+
